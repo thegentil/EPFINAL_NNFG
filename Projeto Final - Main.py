@@ -8,6 +8,16 @@ Projeto Final - Mapa virtual
 
 """
 
-A = open("turmaB.xls", encoding="utf-8")
+Nomes_A = open("Turma_A_Nomes", encoding="utf-8")
+Usuários_A = open("Turma_A_Usuários", encoding="utf-8")
 
-print(A)
+Nomes_B = open("Turma_B_Nomes", encoding="utf-8")
+Usuários_B = open("Turma_B_Usuários", encoding="utf-8")
+
+print(Nomes_A)
+print("")
+print(Usuários_A)
+print("")
+print(Nomes_B)
+print("")
+print(Usuários_B)

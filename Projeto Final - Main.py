@@ -1,52 +1,39 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed May  6 14:30:22 2015
 
-@author: Nicolas Gentil, Nicolas Fonteyne, Gabriel Olanda e Felipe Giardini
+#=============================================================================#
+""" ABRINDO OS ARQUIVOS E LIMPANDO-OS"""
 
-Projeto Final - Mapa virtual
+arquivo_A = open("turma_A.csv")
+arquivo_A = arquivo_A.readlines()
 
-"""
+arquivo_limpo_A = []
+for e in arquivo_A:
+    n = e.strip()
+    n = n.split(';')
+    arquivo_limpo_A.append(n)
 
-Arquivo_Nomes_A = open("Turma_A_Nomes.txt", encoding="utf-8")
-Arquivo_Usuários_A = open("Turma_A_Usuários.txt", encoding="utf-8")
+arquivo_B = open("turma_B.csv")
+arquivo_B = arquivo_B.readlines()
 
-Arquivo_Nomes_B = open("Turma_B_Nomes.txt", encoding="utf-8")
-Arquivo_Usuários_B = open("Turma_B_Usuários.txt", encoding="utf-8")
+arquivo_limpo_B = []
+for e in arquivo_B:
+    n = e.strip()
+    n = n.split(';')
+    arquivo_limpo_B.append(n)
 
-Nomes_A = Arquivo_Nomes_A.readlines()
-Usuários_A = Arquivo_Usuários_A.readlines()
-Nomes_B = Arquivo_Nomes_B.readlines()
-Usuários_B = Arquivo_Usuários_B.readlines()
+#=============================================================================#
+"""ORGANIZANDO OS NOMES, SOBRENOMES E LOGINS"""
 
-print(Nomes_A)
-print("")
-print(Usuários_A)
-print("")
-print(Nomes_B)
-print("")
-print(Usuários_B)
+dic_A = {}
+dic_B = {}
 
-Limpa_Nomes_A = []
-
-for p in Nomes_A[1:]:
-    n = p.strip()
-    
-    if n != " ":
-        Limpa_Nomes_A.append(n)
+for e in arquivo_limpo_A:
+    dic_A[e[0]] = [e[1], e[2]]
         
-print(Limpa_Nomes_A)        
-        
-Limpa_Usuários_A = []
+print(dic_A)
 
-for p in Usuários_A[1:]:
-    n = p.strip()
-    
-    if n != " ":
-        Limpa_Usuários_A.append(n)   
-        
-print(Limpa_Usuários_A)          
-        
-        
-    
+for e in arquivo_limpo_B:
+    dic_B[e[0]] = [e[1], e[2]]
 
+print('')        
+print(dic_B)
+        

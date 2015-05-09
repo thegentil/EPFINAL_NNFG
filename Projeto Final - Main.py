@@ -19,6 +19,9 @@ for e in arquivo_B:
     n = e.strip()
     n = n.split(';')
     arquivo_limpo_B.append(n)
+    
+del arquivo_limpo_A[0]
+del arquivo_limpo_B[0]
 
 #=============================================================================#
 """ORGANIZANDO OS NOMES, SOBRENOMES E LOGINS"""

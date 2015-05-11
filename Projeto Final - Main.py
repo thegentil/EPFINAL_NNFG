@@ -47,8 +47,8 @@ del arquivo_limpo_C[0]
 
 dic_A = {}
 
-for e in arquivo_limpo_A:
-    dic_A[e[2]] =  [e[0], e[1]]
+for e in arquivo_limpo_A:           #adicionando os elementos do arquivo_limpo_A ao dic_A, sendo a chave o login
+    dic_A[e[2]] = [e[0], e[1]]      #e os valores o primeiro nome e os sobrenomes do usuário
 
 print('')
 print(dic_A)
@@ -56,7 +56,7 @@ print(dic_A)
 
 dic_B = {}
 
-for e in arquivo_limpo_B:
+for e in arquivo_limpo_B:           #mesmo para o dic_B
     dic_B[e[2]] = [e[0], e[1]]
 
 print('')        
@@ -65,7 +65,7 @@ print(dic_B)
 
 dic_C = {}
 
-for e in arquivo_limpo_C:
+for e in arquivo_limpo_C:           #mesmo para o dic_C
     dic_C[e[2]] = [e[0], e[1]]
 
 print('')
@@ -74,13 +74,16 @@ print(dic_C)
 """CRIANDO E RELACIONANDO O INPUT DO USUÁRIO DO PROGRAMA COM OS LOGINS LIDOS PELO PROGRAMA ACIMA"""
 
 print('')
-user = input('Seu nome de usuário INSPER:')
+user = input('Seu nome de usuário INSPER: ')
 
 if user in dic_A:
-    print('Bem Vindo ao INSPERBRAIN,\n'+dic_A[user][0])
+    print('Bem Vindo ao INSPERBRAIN,\n'+dic_A[user][0])     #dando resposta ao input do usuário
 
 elif user in dic_B:
     print('Bem Vindo ao INSPERBRAIN,\n'+dic_B[user][0])
 
 elif user in dic_C:
     print('Bem Vindo ao INSPERBRAIN,\n'+dic_C[user][0])
+
+else:
+    print('USUÁRIO INVÁLIDO')

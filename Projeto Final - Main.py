@@ -5,7 +5,6 @@ autors: Nícolas Fonteyne, Gabriel Olanda, Felipe Giardini e Nícolas Gentil
 Descrição breve: desenvolvimento do aplicativo  INSPERBRAIN
 """
 
-
 #=============================================================================#
 """ ABRINDO OS ARQUIVOS E LIMPANDO-OS"""
 
@@ -27,9 +26,21 @@ for e in arquivo_B:
     n = e.strip()
     n = n.split(';')
     arquivo_limpo_B.append(n)
-    
+
+
+arquivo_C = open("turma_C.csv")
+arquivo_C = arquivo_C.readlines()
+
+arquivo_limpo_C = []        #mesmo para arquivo_C
+for e in arquivo_C:
+    n = e.strip()
+    n = n.split(';')
+    arquivo_limpo_C.append(n)
+
+
 del arquivo_limpo_A[0]      #deletando os primeiros elementos das matrizes arquivo_limpo_A & B que eram desprezíveis
 del arquivo_limpo_B[0]
+del arquivo_limpo_C[0]
 
 #=============================================================================#
 """ORGANIZANDO OS NOMES, SOBRENOMES E LOGINS"""
@@ -37,16 +48,26 @@ del arquivo_limpo_B[0]
 dic_A = {}
 
 for e in arquivo_limpo_A:
-    dic_A[e[0]+ ' '+e[1]] =  e[2]
-        
+    dic_A[e[0] + ' '+ e[1]] =  e[2]
+
+print('')
 print(dic_A)
 
 
 dic_B = {}
 
 for e in arquivo_limpo_B:
-    dic_B[e[0]+ ' '+e[1]] = e[2]
+    dic_B[e[0] + ' '+ e[1]] = e[2]
 
 print('')        
 print(dic_B)
+
+
+dic_C = {}
+
+for e in arquivo_limpo_C:
+    dic_C[e[0]+ " " + e[1]] = e[2]
+
+print('')
+print(dic_C)
         

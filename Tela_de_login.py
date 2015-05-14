@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """ Exercício-Programa Final
 
 autors: Nícolas Fonteyne, Gabriel Olanda, Felipe Giardini e Nícolas Gentil
@@ -5,12 +7,14 @@ autors: Nícolas Fonteyne, Gabriel Olanda, Felipe Giardini e Nícolas Gentil
 Descrição breve: desenvolvimento do aplicativo  INSPERBRAIN
 """
 
-
+from __future__ import print_function, division
+import codecs
 
 #=============================================================================#
+
 """ ABRINDO OS ARQUIVOS E LIMPANDO-OS"""
 
-arquivo_A = open("turma_A.csv", encoding='latin1')
+arquivo_A = codecs.open("turma_A.csv", encoding='latin1')
 arquivo_A = arquivo_A.readlines()
 
 arquivo_limpo_A = []        #limpando o arquivo_A e dando split pelo ponto e virgula para assim formar uma matriz,
@@ -20,7 +24,7 @@ for e in arquivo_A:         #em que cada um dos elementos eh uma lista com o pri
     arquivo_limpo_A.append(n)
 
 
-arquivo_B = open("turma_B.csv", encoding='latin1')
+arquivo_B = codecs.open("turma_B.csv", encoding='latin1')
 arquivo_B = arquivo_B.readlines()
 
 arquivo_limpo_B = []        #mesmo para o arquivo_B
@@ -30,7 +34,7 @@ for e in arquivo_B:
     arquivo_limpo_B.append(n)
 
 
-arquivo_C = open("turma_C.csv", encoding='latin1')
+arquivo_C = codecs.open("turma_C.csv", encoding='latin1')
 arquivo_C = arquivo_C.readlines()
 
 arquivo_limpo_C = []        #mesmo para arquivo_C
@@ -66,6 +70,7 @@ for e in arquivo_limpo_C:           #mesmo para o dic_C
 
 #======================================================================================================================#
 
+'''
 def revisão():          #caso precise printar os dics
     print('')
     print(dic_A)
@@ -75,6 +80,7 @@ def revisão():          #caso precise printar os dics
     print(dic_C)
 
 #revisão()
+'''
 
 #======================================================================================================================#
 """CRIANDO E RELACIONANDO O INPUT DO USUÁRIO DO PROGRAMA COM OS LOGINS LIDOS PELO PROGRAMA ACIMA"""
@@ -88,7 +94,9 @@ def user_verification():            #func de verificacao do usuario
         repetir = False             #criando a variavel que diz se vai repetir ou nao
 
         print('')
-        user = input('Seu login INSPER: ')
+        user = str(raw_input('Seu login INSPER: '))
+        print(type(user))
+
 
         if user in dic_A:
             print('Bem Vindo ao INSPERBRAIN,\n'+dic_A[user][0])     #dando resposta ao input do usuario

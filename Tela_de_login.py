@@ -6,12 +6,13 @@ autors: Nícolas Fonteyne, Gabriel Olanda, Felipe Giardini e Nícolas Gentil
 
 Descrição breve: desenvolvimento do aplicativo  INSPERBRAIN
 """
+#======================================================================================================================#
+"""IMPORTANDO OS ARQUIVOS NECESSÁRIOS"""
 
 from __future__ import print_function, division
 import codecs
 
-#=============================================================================#
-
+#======================================================================================================================#
 """ ABRINDO OS ARQUIVOS E LIMPANDO-OS"""
 
 arquivo_A = codecs.open("turma_A.csv", encoding='latin1')
@@ -69,21 +70,9 @@ for e in arquivo_limpo_C:           #mesmo para o dic_C
     dic_C[e[2]] = [e[0], e[1]]
 
 #======================================================================================================================#
-
-'''
-def revisão():          #caso precise printar os dics
-    print('')
-    print(dic_A)
-    print('')
-    print(dic_B)
-    print('')
-    print(dic_C)
-
-#revisão()
-'''
-
-#======================================================================================================================#
 """CRIANDO E RELACIONANDO O INPUT DO USUÁRIO DO PROGRAMA COM OS LOGINS LIDOS PELO PROGRAMA ACIMA"""
+
+user = ""
 
 def user_verification():            #func de verificacao do usuario
 
@@ -97,6 +86,8 @@ def user_verification():            #func de verificacao do usuario
         user = str(raw_input('Seu login INSPER: '))
         print(type(user))
 
+        user = input('Seu login INSPER: ')
+        global user
 
         if user in dic_A:
             print('Bem Vindo ao INSPERBRAIN,\n'+dic_A[user][0])     #dando resposta ao input do usuario
@@ -115,6 +106,20 @@ def user_verification():            #func de verificacao do usuario
 
         if repetir == False:        #faz com que o processo pare de se repetir caso o usuario acerte o login
             break
+
+#======================================================================================================================#
+""" CRIANDO UMA FUNÇÃO QUE RETORNA A CLASSE DO ALUNO"""
+
+def classe_do_aluno():
+
+    if user in dic_A:
+        return "A"
+    if user in dic_B:
+        return "B"
+    if user in dic_C:
+        return "C"
+
+#======================================================================================================================#
 
 '''
         if tentativas >= 3:         #DAQUI PRA BAIXO EH O MODO DE "ESQUECEU SEU LOGIN"
@@ -149,6 +154,21 @@ def user_verification():            #func de verificacao do usuario
                     print('Desculpe, mas seu nome não consta no cadastro')
 '''
 
+#======================================================================================================================#
+"""CHAMANDO AS FUNÇÕES"""
+
 user_verification()
+classe_do_aluno()
 
 #======================================================================================================================#
+
+def revisão():          #caso precise printar os dics
+    print('')
+    print(dic_A)
+    print('')
+    print(dic_B)
+    print('')
+    print(dic_C)
+
+#revisão()
+

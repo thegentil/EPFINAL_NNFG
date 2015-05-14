@@ -6,8 +6,6 @@ autors: Nícolas Fonteyne, Gabriel Olanda, Felipe Giardini e Nícolas Gentil
 
 Descrição breve: desenvolvimento do aplicativo  INSPERBRAIN
 """
-#======================================================================================================================#
-"""IMPORTANDO OS ARQUIVOS NECESSÁRIOS"""
 
 from __future__ import print_function, division
 import codecs
@@ -83,11 +81,8 @@ def user_verification():            #func de verificacao do usuario
         repetir = False             #criando a variavel que diz se vai repetir ou nao
 
         print('')
-        user = str(raw_input('Seu login INSPER: '))
-        print(type(user))
-
-        user = input('Seu login INSPER: ')
         global user
+        user = str(raw_input('Seu login INSPER: ')).lower()
 
         if user in dic_A:
             print('Bem Vindo ao INSPERBRAIN,\n'+dic_A[user][0])     #dando resposta ao input do usuario
@@ -162,7 +157,7 @@ classe_do_aluno()
 
 #======================================================================================================================#
 
-def revisão():          #caso precise printar os dics
+def revisao():          #caso precise printar os dics
     print('')
     print(dic_A)
     print('')

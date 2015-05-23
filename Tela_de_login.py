@@ -16,31 +16,37 @@ import codecs
 def abre_arquivo():
 
     arquivo_A = codecs.open("turma_A.csv", encoding='latin1')
-    arquivo_A = arquivo_A.readlines()
+    linhas_arquivo_A = arquivo_A.readlines()
+
 
     arquivo_B = codecs.open("turma_B.csv", encoding='latin1')
-    arquivo_B = arquivo_B.readlines()
+    linhas_arquivo_B = arquivo_B.readlines()
+
 
     arquivo_C = codecs.open("turma_C.csv", encoding='latin1')
-    arquivo_C = arquivo_C.readlines()
+    linhas_arquivo_C = arquivo_C.readlines()
+
+    return linhas_arquivo_A, linhas_arquivo_B, linhas_arquivo_C
 
 
 def limpa_arquivo():
 
     arquivo_limpo_A = []        #limpando o arquivo_A e dando split pelo ponto e virgula para assim formar uma matriz,
-    for e in arquivo_A:         #em que cada um dos elementos eh uma lista com o primeiro nome da pessoa, seus sobrenomes e o usuario
+    for e in linhas_arquivo_A:         #em que cada um dos elementos eh uma lista com o primeiro nome da pessoa, seus sobrenomes e o usuario
         n = e.strip()
         n = n.split(';')
         arquivo_limpo_A.append(n)
 
+
     arquivo_limpo_B = []        #mesmo para o arquivo_B
-    for e in arquivo_B:
+    for e in linhas_arquivo_B:
         n = e.strip()
         n = n.split(';')
         arquivo_limpo_B.append(n)
 
+
     arquivo_limpo_C = []        #mesmo para arquivo_C
-    for e in arquivo_C:
+    for e in linhas_arquivo_C:
         n = e.strip()
         n = n.split(';')
         arquivo_limpo_C.append(n)
@@ -49,6 +55,8 @@ def limpa_arquivo():
     del arquivo_limpo_A[0]      #deletando os primeiros elementos das matrizes arquivo_limpo_A & B que eram despreziveis
     del arquivo_limpo_B[0]
     del arquivo_limpo_C[0]
+
+    return arquivo_limpo_A, arquivo_limpo_B, arquivo_limpo_C
 
 #======================================================================================================================#
 """ CRIA OS DICIONARIOS DAS CLASSES """
@@ -72,6 +80,9 @@ def dic_classes():
     for e in arquivo_limpo_C:           #mesmo para o dic_C
         dic_C[e[2]] = [e[0], e[1]]
 
+
+    return dic_A, dic_B, dic_C
+
 #======================================================================================================================#
 """CRIANDO E RELACIONANDO O INPUT DO USUÁRIO DO PROGRAMA COM OS LOGINS LIDOS PELO PROGRAMA ACIMA"""
 
@@ -85,7 +96,6 @@ def user_verification():            #func de verificacao do usuario
         repetir = False             #criando a variavel que diz se vai repetir ou nao
 
         print('')
-        global user
         user = str(raw_input('Seu login INSPER: ')).lower()
 
         if user in dic_A:
@@ -105,6 +115,8 @@ def user_verification():            #func de verificacao do usuario
 
         if repetir == False:        #faz com que o processo pare de se repetir caso o usuario acerte o login
             break
+
+    return user
 
 #======================================================================================================================#
 """ CRIANDO UMA FUNÇÃO QUE RETORNA A CLASSE DO ALUNO"""
@@ -154,8 +166,13 @@ def classe_do_aluno():
 '''
 
 #======================================================================================================================#
-"""CHAMANDO AS FUNÇÕES"""
-
+"""CHAMANDO AS FUNÇÕES
+abre_arquivo()
+limpa_arquivo()
+dic_classes()
+user_verification()
+print(classe_do_aluno())
+"""
 
 #======================================================================================================================#
 

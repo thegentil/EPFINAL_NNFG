@@ -6,6 +6,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 import time
 import random
+from kivy.uix.image import Image
+from kivy.uix.widget import Widget
 
 class Mapa(Screen):
     pass
@@ -43,7 +45,7 @@ MyScreenManager:
         Label:
             text: 'Calendario'
             font_size: 30
-            size_hint: [1,.2]
+            size_hint: [1,.1]
 
         BoxLayout:
 
@@ -79,9 +81,12 @@ MyScreenManager:
         Label:
             text: 'Mapa'
             font_size: 30
-            size_hint: [1,.2]
+            size_hint: [1,.1]
 
         BoxLayout:
+            Image:
+                source: 'LAYOUT REVISADO 07-11-page-001.jpg'
+                size_hint: [1,1]
 
         BoxLayout:
             Button:
@@ -115,7 +120,7 @@ MyScreenManager:
         Label:
             text: 'Professores'
             font_size: 30
-            size_hint: [1,.2]
+            size_hint: [1,.1]
 
         BoxLayout:
 
@@ -151,7 +156,7 @@ MyScreenManager:
         Label:
             text: 'Sair'
             font_size: 30
-            size_hint: [1,.2]
+            size_hint: [1,.1]
 
         BoxLayout:
 

@@ -37,114 +37,146 @@ MyScreenManager:
 
 <Calendario>:
     name: 'Calendario'
+
     BoxLayout:
         orientation: 'vertical'
         Label:
             text: 'Calendario'
             font_size: 30
+            size_hint: [1,.2]
+
+        BoxLayout:
 
         BoxLayout:
             Button:
                 text: 'Mapa'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Mapa'
             Button:
                 text: 'Calendario'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Calendario'
 
             Button:
                 text: 'Professores'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Professores'
 
             Button:
                 text: 'Sair'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Sair'
 
 <Mapa>:
     name: 'Mapa'
+
     BoxLayout:
         orientation: 'vertical'
         Label:
             text: 'Mapa'
             font_size: 30
+            size_hint: [1,.2]
+
+        BoxLayout:
 
         BoxLayout:
             Button:
                 text: 'Mapa'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Mapa'
             Button:
                 text: 'Calendario'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Calendario'
 
             Button:
                 text: 'Professores'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Professores'
 
             Button:
                 text: 'Sair'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Sair'
 
 <Professores>:
     name: 'Professores'
+
     BoxLayout:
         orientation: 'vertical'
         Label:
             text: 'Professores'
             font_size: 30
+            size_hint: [1,.2]
+
+        BoxLayout:
 
         BoxLayout:
             Button:
                 text: 'Mapa'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Mapa'
             Button:
                 text: 'Calendario'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Calendario'
 
             Button:
                 text: 'Professores'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Professores'
 
             Button:
                 text: 'Sair'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Sair'
 
 <Sair>:
     name: 'Sair'
+
     BoxLayout:
         orientation: 'vertical'
         Label:
             text: 'Sair'
             font_size: 30
+            size_hint: [1,.2]
+
+        BoxLayout:
 
         BoxLayout:
             Button:
                 text: 'Mapa'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Mapa'
             Button:
                 text: 'Calendario'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Calendario'
 
             Button:
                 text: 'Professores'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Professores'
 
             Button:
                 text: 'Sair'
                 font_size: 20
+                size_hint: [1,.2]
                 on_release: app.root.current = 'Sair'
 
 ''')

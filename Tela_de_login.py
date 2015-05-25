@@ -13,7 +13,9 @@ import codecs
 #======================================================================================================================#
 """ ABRINDO OS ARQUIVOS E LIMPANDO-OS """
 
-def abre_arquivo():
+def dics():
+
+#ABRINDO OS ARQUIVOS:
 
     arquivo_A = codecs.open("turma_A.csv", encoding='latin1')
     linhas_arquivo_A = arquivo_A.readlines()
@@ -26,10 +28,8 @@ def abre_arquivo():
     arquivo_C = codecs.open("turma_C.csv", encoding='latin1')
     linhas_arquivo_C = arquivo_C.readlines()
 
-    return linhas_arquivo_A, linhas_arquivo_B, linhas_arquivo_C
 
-
-def limpa_arquivo():
+#LIMPANDO OS ARQUIVOS:
 
     arquivo_limpo_A = []        #limpando o arquivo_A e dando split pelo ponto e virgula para assim formar uma matriz,
     for e in linhas_arquivo_A:         #em que cada um dos elementos eh uma lista com o primeiro nome da pessoa, seus sobrenomes e o usuario
@@ -56,37 +56,30 @@ def limpa_arquivo():
     del arquivo_limpo_B[0]
     del arquivo_limpo_C[0]
 
-    return arquivo_limpo_A, arquivo_limpo_B, arquivo_limpo_C
 
-#======================================================================================================================#
-""" CRIA OS DICIONARIOS DAS CLASSES """
+#CRIANDO OS DICIONARIOS:
 
-def dic_classes():
-
+    global dic_A
     dic_A = {}
 
     for e in arquivo_limpo_A:           #adicionando os elementos do arquivo_limpo_A ao dic_A, sendo a chave o login
         dic_A[e[2]] = [e[0], e[1]]      #e os valores o primeiro nome e os sobrenomes do usuario
 
-
+    global dic_B
     dic_B = {}
 
     for e in arquivo_limpo_B:           #mesmo para o dic_B
         dic_B[e[2]] = [e[0], e[1]]
 
-
+    global dic_C
     dic_C = {}
 
     for e in arquivo_limpo_C:           #mesmo para o dic_C
         dic_C[e[2]] = [e[0], e[1]]
 
-
-    return dic_A, dic_B, dic_C
-
 #======================================================================================================================#
 """CRIANDO E RELACIONANDO O INPUT DO USUÁRIO DO PROGRAMA COM OS LOGINS LIDOS PELO PROGRAMA ACIMA"""
 
-user = ""
 def user_verification():            #func de verificacao do usuario
 
     tentativas = 0                  #criando a variavel que conta quantas vezes o user errou o login
@@ -96,6 +89,7 @@ def user_verification():            #func de verificacao do usuario
         repetir = False             #criando a variavel que diz se vai repetir ou nao
 
         print('')
+        global user
         user = str(raw_input('Seu login INSPER: ')).lower()
 
         if user in dic_A:
@@ -115,8 +109,6 @@ def user_verification():            #func de verificacao do usuario
 
         if repetir == False:        #faz com que o processo pare de se repetir caso o usuario acerte o login
             break
-
-    return user
 
 #======================================================================================================================#
 """ CRIANDO UMA FUNÇÃO QUE RETORNA A CLASSE DO ALUNO"""
@@ -166,17 +158,12 @@ def classe_do_aluno():
 '''
 
 #======================================================================================================================#
-"""CHAMANDO AS FUNÇÕES
-abre_arquivo()
-limpa_arquivo()
-dic_classes()
-user_verification()
-print(classe_do_aluno())
-"""
 
-#======================================================================================================================#
+#dics()
+#user_verification()
 
 def revisao():          #caso precise printar os dics
+    dics()
     print('')
     print(dic_A)
     print('')
@@ -184,5 +171,5 @@ def revisao():          #caso precise printar os dics
     print('')
     print(dic_C)
 
-#revisão()
+#revisao()
 

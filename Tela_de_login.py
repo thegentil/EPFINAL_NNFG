@@ -159,8 +159,8 @@ def classe_do_aluno():
 
 #======================================================================================================================#
 
-#dics()
-#user_verification()
+dics()
+user_verification()
 
 def revisao():          #caso precise printar os dics
     dics()

@@ -99,27 +99,28 @@ MyScreenManager:
                 on_release: app.root.current = 'Sexta'
 
         BoxLayout:
+
             Button:
                 text: 'Mapa'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
             Button:
                 text: 'Calendario'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
 
             Button:
                 text: 'Professores'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
 
             Button:
                 text: 'Sair'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
 
 <Segunda>:
@@ -165,24 +166,24 @@ MyScreenManager:
             Button:
                 text: 'Mapa'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
             Button:
                 text: 'Calendario'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
 
             Button:
                 text: 'Professores'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
 
             Button:
                 text: 'Sair'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
 
 <Terca>:
@@ -228,24 +229,24 @@ MyScreenManager:
             Button:
                 text: 'Mapa'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
             Button:
                 text: 'Calendario'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
 
             Button:
                 text: 'Professores'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
 
             Button:
                 text: 'Sair'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
 
 <Quarta>:
@@ -291,24 +292,24 @@ MyScreenManager:
             Button:
                 text: 'Mapa'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
             Button:
                 text: 'Calendario'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
 
             Button:
                 text: 'Professores'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
 
             Button:
                 text: 'Sair'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
 
 <Quinta>:
@@ -354,24 +355,24 @@ MyScreenManager:
             Button:
                 text: 'Mapa'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
             Button:
                 text: 'Calendario'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
 
             Button:
                 text: 'Professores'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
 
             Button:
                 text: 'Sair'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
 
 <Sexta>:
@@ -417,24 +418,24 @@ MyScreenManager:
             Button:
                 text: 'Mapa'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
             Button:
                 text: 'Calendario'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
 
             Button:
                 text: 'Professores'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
 
             Button:
                 text: 'Sair'
                 font_size: 20
-                size_hint: [1,.2]
+                size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
 
 <Mapa>:

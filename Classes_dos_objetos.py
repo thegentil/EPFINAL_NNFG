@@ -15,10 +15,10 @@ import codecs
 
 class Aluno:
 
-    def __init__(self, nome, usuario, sala):
+    def __init__(self, nome, usuario, turma):
         self.nome = nome
         self.usuario = usuario
-        self.sala = sala
+        self.turma = turma
 
 
 class Turma:
@@ -31,8 +31,8 @@ class Turma:
 
 class Materia:
 
-    def __init__(self, sala, horarios):
-        self.sala = sala
+    def __init__(self, turma, horarios):
+        self.turma = turma
         self.horario = horarios
 
 

@@ -23,10 +23,17 @@ class Aluno:
 
 class Turma:
 
-    def __init__(self, nome, materias, sala):
+    def __init__(self, nome, sala):
         self.nome = nome
-        self.materias = materias
+        self.materias = []
         self.sala = sala
+        self.alunos = []
+
+    def adiciona_aluno(self, aluno):
+        self.alunos.append(aluno)
+
+    def adiciona_materias(self, materia):
+        self.materias.append(materia)
 
 
 class Materia:

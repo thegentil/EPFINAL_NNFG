@@ -138,6 +138,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
+
             Button:
                 text: 'Calendario'
                 font_size: 20
@@ -151,10 +152,16 @@ MyScreenManager:
                 on_release: app.root.current = 'Professores'
 
             Button:
-                text: 'Sair'
-                font_size: 20
+
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
+
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.1,.1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
 <Segunda>:
     name: 'Segunda'
@@ -480,7 +487,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'LAYOUT REVISADO 07-11-page-001.jpg'
+                source: 'mapa_insper.png'
                 size_hint: [1,1]
 
         BoxLayout:

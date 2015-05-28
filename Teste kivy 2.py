@@ -554,38 +554,26 @@ MyScreenManager:
 <Sair>:
     name: 'Sair'
 
-    BoxLayout:
-        orientation: 'vertical'
+    FloatLayout:
         Label:
-            text: 'Sair'
+            text: 'Tem certeza que deseja sair?'
+            font_size: 50
+            size_hint_y: 1.7
+            size_hint_x: .95
+        Button:
+            text: 'SIM'
             font_size: 30
-            size_hint: [1,.1]
-
-        BoxLayout:
-
-        BoxLayout:
-            Button:
-                text: 'Mapa'
-                font_size: 20
-                size_hint: [1,.2]
-                on_release: app.root.current = 'Mapa'
-            Button:
-                text: 'Calendario'
-                font_size: 20
-                size_hint: [1,.2]
-                on_release: app.root.current = 'Calendario'
-
-            Button:
-                text: 'Professores'
-                font_size: 20
-                size_hint: [1,.2]
-                on_release: app.root.current = 'Professores'
-
-            Button:
-                text: 'Sair'
-                font_size: 20
-                size_hint: [1,.2]
-                on_release: app.root.current = 'Sair'
+            size_hint_y: .15
+            size_hint_x: .2
+            pos_hint: {'center_x': 0.4, 'center_y':.4}
+            on_release: app.root.current = 'Usuario'
+        Button:
+            text: 'NAO'
+            font_size: 30
+            size_hint_y: .15
+            size_hint_x: .2
+            pos_hint: {'center_x': 0.6, 'center_y':.4}
+            on_release: app.root.current = 'Calendario'
 
 ''')
 

@@ -9,6 +9,9 @@ import random
 from kivy.uix.image import Image
 from kivy.uix.widget import Widget
 
+class Usuario(Screen):
+    pass
+
 class Mapa(Screen):
     pass
 
@@ -48,6 +51,8 @@ MyScreenManager:
 
     transition: FadeTransition()
 
+    Usuario:
+
     Calendario:
     Mapa:
     Professores:
@@ -58,6 +63,34 @@ MyScreenManager:
     Quarta:
     Quinta:
     Sexta:
+
+<Usuario>:
+    name: 'Usuario'
+    FloatLayout:
+        Label:
+            text: 'Bem Vindo ao INSPERBRAIN'
+            font_size: 50
+            size_hint_y: 1.7
+            size_hint_x: .95
+        GridLayout:
+            size_hint_y: 0.08
+            size_hint_x: .6
+            height: 80
+            pos_hint: {'center_x': .5, 'center_y':.6}
+            cols: 2
+            Label:
+                text: "Login"
+                font_size: 30
+            TextInput:
+                font_size: 30
+                multline: False
+        Button:
+            text: 'Ir'
+            font_size: 30
+            size_hint_y: .1
+            size_hint_x: .1
+            pos_hint: {'center_x': .5, 'center_y':.4}
+            on_release: app.root.current = 'Calendario'
 
 <Calendario>:
     name: 'Calendario'

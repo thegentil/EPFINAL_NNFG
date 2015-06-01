@@ -84,6 +84,7 @@ MyScreenManager:
             TextInput:
                 font_size: 30
                 multline: False
+
         Button:
             text: 'Ir'
             font_size: 30
@@ -134,31 +135,44 @@ MyScreenManager:
         BoxLayout:
 
             Button:
-                text: 'Mapa'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
-
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
             Button:
-                text: 'Calendario'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Professores'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-
+                font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
-
                 Image:
                     source: 'sair.png'
-                    size_hint: [.1,.1]
+                    size_hint: [.3,.3]
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -203,28 +217,49 @@ MyScreenManager:
                 on_release: app.root.current = 'Sexta'
 
         BoxLayout:
+
             Button:
-                text: 'Mapa'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
             Button:
-                text: 'Calendario'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Professores'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Sair'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
 <Terca>:
     name: 'Terca'
@@ -266,28 +301,49 @@ MyScreenManager:
                 on_release: app.root.current = 'Sexta'
 
         BoxLayout:
+
             Button:
-                text: 'Mapa'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
             Button:
-                text: 'Calendario'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Professores'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Sair'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
 <Quarta>:
     name: 'Quarta'
@@ -329,28 +385,49 @@ MyScreenManager:
                 on_release: app.root.current = 'Sexta'
 
         BoxLayout:
+
             Button:
-                text: 'Mapa'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
             Button:
-                text: 'Calendario'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Professores'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Sair'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
 <Quinta>:
     name: 'Quinta'
@@ -392,28 +469,49 @@ MyScreenManager:
                 on_release: app.root.current = 'Sexta'
 
         BoxLayout:
+
             Button:
-                text: 'Mapa'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
             Button:
-                text: 'Calendario'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Professores'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Sair'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
 <Sexta>:
     name: 'Sexta'
@@ -455,28 +553,49 @@ MyScreenManager:
                 on_release: app.root.current = 'Sexta'
 
         BoxLayout:
+
             Button:
-                text: 'Mapa'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
             Button:
-                text: 'Calendario'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Professores'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Sair'
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
 <Mapa>:
     name: 'Mapa'
@@ -492,28 +611,49 @@ MyScreenManager:
 
         BoxLayout:
             size_hint: [1,.1]
+
             Button:
-                text: 'Mapa'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
             Button:
-                text: 'Calendario'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Professores'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Sair'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
 <Professores>:
     name: 'Professores'
@@ -528,28 +668,49 @@ MyScreenManager:
         BoxLayout:
 
         BoxLayout:
+
             Button:
-                text: 'Mapa'
                 font_size: 20
                 size_hint: [1,.2]
                 on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
             Button:
-                text: 'Calendario'
                 font_size: 20
                 size_hint: [1,.2]
                 on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Professores'
                 font_size: 20
                 size_hint: [1,.2]
                 on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
             Button:
-                text: 'Sair'
                 font_size: 20
                 size_hint: [1,.2]
                 on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
 <Sair>:
     name: 'Sair'

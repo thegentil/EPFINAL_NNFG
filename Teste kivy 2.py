@@ -217,6 +217,12 @@ MyScreenManager:
                 on_release: app.root.current = 'Sexta'
 
         BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'Segunda_B.png'
+                size_hint: [1,1]
+
+        BoxLayout:
 
             Button:
                 font_size: 20

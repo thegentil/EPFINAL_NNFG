@@ -8,6 +8,7 @@ import time
 import random
 from kivy.uix.image import Image
 from kivy.uix.widget import Widget
+from kivy.uix.scatter import Scatter
 
 class Usuario(Screen):
     pass

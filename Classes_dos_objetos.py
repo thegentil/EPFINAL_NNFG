@@ -11,7 +11,7 @@ from __future__ import print_function, division
 import codecs
 
 #======================================================================================================================#
-""" CRIANDO AS CLASSES A SEREM UTILIZADAS NA TELA_PROFESSORES """
+""" CRIANDO AS CLASSES A SEREM UTILIZADAS """
 
 class Aluno:
 
@@ -25,26 +25,23 @@ class Turma:
 
     def __init__(self, nome, sala):
         self.nome = nome
-        self.materias = []
         self.sala = sala
         self.alunos = []
+        self.professores = []
 
     def adiciona_aluno(self, aluno):
         self.alunos.append(aluno)
 
-    def adiciona_materias(self, materia):
-        self.materias.append(materia)
-
-
-class Materia:
-
-    def __init__(self, turma, horarios):
-        self.turma = turma
-        self.horario = horarios
+    def adiciona_professor(self, professor):
+        self.professores.append(professor)
 
 
 class Professor:
 
-    def __init__(self, nome, materia):
+    def __init__(self, nome, materia, turmas):
         self.nome = nome
         self.materia = materia
+        self.turmas = turmas
+
+    def adiciona_sala(self, sala):
+        self.salas.append(sala)

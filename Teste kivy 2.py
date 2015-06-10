@@ -4,13 +4,76 @@ from kivy.lang import Builder
 from kivy.properties import ListProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
-import time
-import random
 from kivy.uix.image import Image
 from kivy.uix.widget import Widget
+import time
+import random
+from Dic_turmas import *
+from Classes_dos_objetos import *
+
+#======================================================================================================================#
+
+#CRIANDO OS PROFESSORES:
+
+professores = []
+for p in dic_profs:
+    p = Professor(p, dic_profs[p][0], dic_profs[p][1])
+    professores.append(p)
+
+#======================================================================================================================#
+
+#CRIANDO AS TURMAS:
+
+    #CRIANDO A TURMA A:
+
+turma_A = Turma('A', 401)
+for u in dic_A:
+    turma_A.adiciona_aluno(dic_A[u][0] + ' ' + dic_A[u][1])
+
+for p in professores:
+    if 'A' in p.turmas:
+        turma_A.adiciona_professor(p)
+
+    #CRIANDO A TURMA B:
+
+turma_B = Turma('B', 402)
+for u in dic_B:
+    turma_B.adiciona_professor(dic_B[u][0] + ' ' + dic_B[u][1])
+
+for p in professores:
+    if 'B' in p.turmas:
+        turma_B.adiciona_professor(p)
+
+    #CRIANDO A TURMA C:
+
+turma_C = Turma('C', 403)
+for u in dic_C:
+    turma_C.adiciona_professor(dic_C[u][0] + ' ' + dic_C[u][1])
+
+for p in professores:
+    if 'C' in p.turmas:
+        turma_C.adiciona_professor(p)
+
+#======================================================================================================================#
+#CRIANDO O USUARIO:
+
+aluno = None
+
+#======================================================================================================================#
+
+#CRIANDO A INTERFACE:
 
 class Usuario(Screen):
-    pass
+    def checa_usuario(self, *args):
+        input = self.ids["text_input"]
+        #button = self.ids["ir_button"]
+        if input.text.lower() in dic_B:
+            input.background_color = [255,0,0,1]
+
+        else:
+            print('nao')
+
+
 
 class Mapa(Screen):
     pass
@@ -82,20 +145,21 @@ MyScreenManager:
                 text: "Login"
                 font_size: 30
             TextInput:
+                id: text_input
                 font_size: 30
                 multline: False
 
         Button:
+            id: ir_button
             text: 'Ir'
             font_size: 30
             size_hint_y: .1
             size_hint_x: .1
             pos_hint: {'center_x': .5, 'center_y':.4}
-            on_release: app.root.current = 'Calendario'
+            on_release: root.checa_usuario()
 
 <Calendario>:
     name: 'Calendario'
-
     BoxLayout:
         orientation: 'vertical'
 
@@ -743,6 +807,11 @@ MyScreenManager:
             on_release: app.root.current = 'Calendario'
 
 ''')
+
+
+#======================================================================================================================#
+
+#RODANDO O PROGRAMA:
 
 class ScreenManagerApp(App):
     def build(self):

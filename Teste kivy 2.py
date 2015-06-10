@@ -64,11 +64,12 @@ aluno = None
 #CRIANDO A INTERFACE:
 
 class Usuario(Screen):
+
     def checa_usuario(self, *args):
         input = self.ids["text_input"]
         #button = self.ids["ir_button"]
-        if input.text.lower() in dic_B:
-            input.background_color = [255,0,0,1]
+        if input.text.lower() in dic_A:
+
 
         else:
             print('nao')

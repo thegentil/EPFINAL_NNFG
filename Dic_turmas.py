@@ -86,4 +86,8 @@ dic_profs = {"FABIO ORFALI": ["MODELAGEM E SIMULACAO DO MUNOD FISICO", ['A']],
              "FERNANDO MOYA ORSATTI": ["MODELAGEM E SIMULACAO DO MUNOD FISICO", ['C']],
              "MAURICIO SILVA FERREIRA": ["INSTRUMENTACAO E MEDICAO", ['C']]}
 
+dicionarios = [dic_A, dic_B, dic_C]
 
+for e in dicionarios:
+    print(e)
+    print('')

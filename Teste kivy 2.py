@@ -64,55 +64,7 @@ aluno = None
 #CRIANDO A INTERFACE:
 
 class Usuario(Screen):
-
-    def checa_usuario(self, *args):
-        input = self.ids["text_input"]
-        input = input.text.lower()
-
-        if input in dic_A:
-
-            global aluno
-
-            nome = dic_A[input]
-
-            aluno = Aluno(nome, input, turma_A)
-
-
-        elif input in dic_B:
-
-            global aluno
-
-            nome = dic_B[input]
-
-            aluno = Aluno(nome, input, turma_B)
-
-
-        elif input in dic_C:
-
-            global aluno
-
-            nome = dic_C[input]
-
-            aluno = Aluno(nome, input, turma_C)
-
-
-        else:
-
-            pass
-
-
-        def teste():
-
-            try:
-                for e in aluno.nome:
-                    print(e)
-
-            except:
-
-                print('inexistente')
-
-        teste()
-
+    pass
 
 
 class Mapa(Screen):
@@ -144,7 +96,59 @@ class Sexta(Screen):
 
 
 class MyScreenManager(ScreenManager):
-    pass
+    def checa_usuario(self, *args):
+        input = self.screens[0].ids["text_input"]
+        input = input.text.lower()
+
+        if input in dic_A:
+
+            global aluno
+
+            nome = dic_A[input]
+
+            aluno = Aluno(nome, input, turma_A)
+
+            root_widget.current = 'Calendario'
+
+
+        elif input in dic_B:
+
+            global aluno
+
+            nome = dic_B[input]
+
+            aluno = Aluno(nome, input, turma_B)
+
+            root_widget.current = 'Calendario'
+
+
+        elif input in dic_C:
+
+            global aluno
+
+            nome = dic_C[input]
+
+            aluno = Aluno(nome, input, turma_C)
+
+            root_widget.current = 'Calendario'
+
+
+        else:
+
+            pass
+
+
+        def teste():
+
+            try:
+                for e in aluno.nome:
+                    print(e)
+
+            except:
+
+                print('inexistente')
+
+        teste()
 
 root_widget = Builder.load_string('''
 
@@ -181,13 +185,14 @@ MyScreenManager:
             height: 80
             pos_hint: {'center_x': .5, 'center_y':.6}
             cols: 2
+
             Label:
                 text: "Login"
                 font_size: 30
             TextInput:
                 id: text_input
                 font_size: 30
-                multline: False
+                multiline: False
 
         Button:
             id: ir_button
@@ -196,7 +201,7 @@ MyScreenManager:
             size_hint_y: .1
             size_hint_x: .1
             pos_hint: {'center_x': .5, 'center_y':.4}
-            on_release: root.checa_usuario()
+            on_release: root.manager.checa_usuario()
 
 <Calendario>:
     name: 'Calendario'

@@ -4,11 +4,66 @@ from kivy.lang import Builder
 from kivy.properties import ListProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
-import time
-import random
 from kivy.uix.image import Image
 from kivy.uix.widget import Widget
-from kivy.uix.scatter import Scatter
+import time
+import random
+from Dic_turmas import *
+from Classes_dos_objetos import *
+
+#======================================================================================================================#
+
+#CRIANDO OS PROFESSORES:
+
+professores = []
+for p in dic_profs:
+    p = Professor(p, dic_profs[p][0], dic_profs[p][1])
+    professores.append(p)
+
+#======================================================================================================================#
+
+#CRIANDO AS TURMAS:
+
+    #CRIANDO A TURMA A:
+
+turma_A = Turma('A', 401)
+for u in dic_A:
+    turma_A.adiciona_aluno(dic_A[u][0] + ' ' + dic_A[u][1])
+
+for p in professores:
+    if 'A' in p.turmas:
+        turma_A.adiciona_professor(p)
+
+    #CRIANDO A TURMA B:
+
+turma_B = Turma('B', 402)
+for u in dic_B:
+    turma_B.adiciona_professor(dic_B[u][0] + ' ' + dic_B[u][1])
+
+for p in professores:
+    if 'B' in p.turmas:
+        turma_B.adiciona_professor(p)
+
+    #CRIANDO A TURMA C:
+
+turma_C = Turma('C', 403)
+for u in dic_C:
+    turma_C.adiciona_professor(dic_C[u][0] + ' ' + dic_C[u][1])
+
+for p in professores:
+    if 'C' in p.turmas:
+        turma_C.adiciona_professor(p)
+
+#======================================================================================================================#
+
+#CRIANDO O USUARIO:
+
+aluno = None
+
+#======================================================================================================================#
+
+#CRIANDO A INTERFACE:
+
 
 class Usuario(Screen):
     pass
@@ -42,7 +97,61 @@ class Sexta(Screen):
 
 
 class MyScreenManager(ScreenManager):
-    pass
+
+    def checa_usuario(self, *args):
+
+        input = self.screens[0].ids["text_input"]
+        input = input.text.lower()
+
+        if input in dic_A:
+
+            global aluno
+
+            nome = dic_A[input]
+
+            aluno = Aluno(nome, input, turma_A)
+
+            root_widget.current = 'Calendario'
+
+
+        elif input in dic_B:
+
+            global aluno
+
+            nome = dic_B[input]
+
+            aluno = Aluno(nome, input, turma_B)
+
+            root_widget.current = 'Calendario'
+
+
+        elif input in dic_C:
+
+            global aluno
+
+            nome = dic_C[input]
+
+            aluno = Aluno(nome, input, turma_C)
+
+            root_widget.current = 'Calendario'
+
+
+        else:
+
+            pass
+
+
+        def teste():
+
+            try:
+                for e in aluno.nome:
+                    print(e)
+
+            except:
+
+                print('inexistente')
+
+        teste()
 
 root_widget = Builder.load_string('''
 
@@ -83,8 +192,9 @@ MyScreenManager:
                 text: "Login"
                 font_size: 30
             TextInput:
+                id: text_input
                 font_size: 30
-                multline: False
+                multiline: False
 
         Button:
             text: 'Ir'
@@ -92,7 +202,7 @@ MyScreenManager:
             size_hint_y: .1
             size_hint_x: .1
             pos_hint: {'center_x': .5, 'center_y':.4}
-            on_release: app.root.current = 'Calendario'
+            on_release: root.manager.checa_usuario()
 
 <Calendario>:
     name: 'Calendario'

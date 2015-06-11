@@ -67,12 +67,51 @@ class Usuario(Screen):
 
     def checa_usuario(self, *args):
         input = self.ids["text_input"]
-        #button = self.ids["ir_button"]
-        if input.text.lower() in dic_A:
+        input = input.text.lower()
+
+        if input in dic_A:
+
+            global aluno
+
+            nome = dic_A[input]
+
+            aluno = Aluno(nome, input, turma_A)
+
+
+        elif input in dic_B:
+
+            global aluno
+
+            nome = dic_B[input]
+
+            aluno = Aluno(nome, input, turma_B)
+
+
+        elif input in dic_C:
+
+            global aluno
+
+            nome = dic_C[input]
+
+            aluno = Aluno(nome, input, turma_C)
 
 
         else:
-            print('nao')
+
+            pass
+
+
+        def teste():
+
+            try:
+                for e in aluno.nome:
+                    print(e)
+
+            except:
+
+                print('inexistente')
+
+        teste()
 
 
 
@@ -819,4 +858,3 @@ class ScreenManagerApp(App):
         return root_widget
 
 ScreenManagerApp().run()
-

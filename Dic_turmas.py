@@ -88,6 +88,10 @@ dic_profs = {"FABIO ORFALI": ["MODELAGEM E SIMULACAO DO MUNOD FISICO", ['A']],
 
 dicionarios = [dic_A, dic_B, dic_C]
 
-for e in dicionarios:
-    print(e)
-    print('')
+def teste_dics():
+
+    for e in dicionarios:
+        print(e)
+        print('')
+
+#teste_dics()

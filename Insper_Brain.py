@@ -99,9 +99,10 @@ class Sexta(Screen):
 class MyScreenManager(ScreenManager):
 
     def checa_usuario(self, *args):
-
         input = self.screens[0].ids["text_input"]
         input = input.text.lower()
+
+        status = self.screens[0].ids["status_label"]
 
         if input in dic_A:
 
@@ -110,6 +111,9 @@ class MyScreenManager(ScreenManager):
             nome = dic_A[input]
 
             aluno = Aluno(nome, input, turma_A)
+
+            status.text = "Ola {0}".format(dic_A[input][0])
+            status.color = [0,1,0,1]
 
             root_widget.current = 'Calendario'
 
@@ -122,7 +126,12 @@ class MyScreenManager(ScreenManager):
 
             aluno = Aluno(nome, input, turma_B)
 
+            status.text = "Ola {0}".format(dic_B[input][0])
+            status.color = [0,1,0,1]
+
             root_widget.current = 'Calendario'
+
+
 
 
         elif input in dic_C:
@@ -133,10 +142,16 @@ class MyScreenManager(ScreenManager):
 
             aluno = Aluno(nome, input, turma_C)
 
+            status.text = "Ola {0}".format(dic_C[input][0])
+            status.color = [0,1,0,1]
+
             root_widget.current = 'Calendario'
 
 
         else:
+
+            status.text = "Usuario Invalido"
+            status.color = [1,0,0,1]
 
             pass
 
@@ -151,7 +166,7 @@ class MyScreenManager(ScreenManager):
 
                 print('inexistente')
 
-        teste()
+        #teste()
 
 root_widget = Builder.load_string('''
 
@@ -184,10 +199,10 @@ MyScreenManager:
             size_hint_x: .95
         GridLayout:
             size_hint_y: 0.08
-            size_hint_x: .6
+            size_hint_x: .8
             height: 80
             pos_hint: {'center_x': .5, 'center_y':.6}
-            cols: 2
+            cols: 3
             Label:
                 text: "Login"
                 font_size: 30
@@ -195,6 +210,11 @@ MyScreenManager:
                 id: text_input
                 font_size: 30
                 multiline: False
+            Label:
+                id: status_label
+                text: ""
+                font_size: 15
+                color: [1,0,0,1]
 
         Button:
             text: 'Ir'

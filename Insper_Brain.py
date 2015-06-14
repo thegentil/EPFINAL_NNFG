@@ -98,11 +98,21 @@ class Sexta(Screen):
 
 class MyScreenManager(ScreenManager):
 
-    def checa_usuario(self, *args):
-        input = self.screens[0].ids["text_input"]
-        input = input.text.lower()
+    user_input = None
+    status = None
 
+    def variaveis(self):
+
+        global user_input
+        global status
+
+        user_input = self.screens[0].ids["text_input"]
         status = self.screens[0].ids["status_label"]
+
+    def checa_usuario(self, *args):
+
+        input = user_input.text.lower()
+
 
         if input in dic_A:
 
@@ -130,8 +140,6 @@ class MyScreenManager(ScreenManager):
             status.color = [0,1,0,1]
 
             root_widget.current = 'Calendario'
-
-
 
 
         elif input in dic_C:
@@ -168,6 +176,15 @@ class MyScreenManager(ScreenManager):
 
         #teste()
 
+    def reset_user_screen(self, *args):
+
+        user_input.text = ""
+
+        status.color = [0,0,0,1]
+
+        root_widget.current = 'Usuario'
+
+
 root_widget = Builder.load_string('''
 
 #:import FadeTransition kivy.uix.screenmanager.FadeTransition
@@ -193,7 +210,7 @@ MyScreenManager:
     name: 'Usuario'
     FloatLayout:
         Label:
-            text: 'Bem Vindo ao INSPERBRAIN'
+            text: 'INSPERBRAIN'
             font_size: 50
             size_hint_y: 1.7
             size_hint_x: .95
@@ -210,6 +227,7 @@ MyScreenManager:
                 id: text_input
                 font_size: 30
                 multiline: False
+                on_text: root.manager.variaveis()
             Label:
                 id: status_label
                 text: ""
@@ -893,7 +911,7 @@ MyScreenManager:
             size_hint_y: .15
             size_hint_x: .2
             pos_hint: {'center_x': 0.4, 'center_y':.4}
-            on_release: app.root.current = 'Usuario'
+            on_release: root.manager.reset_user_screen()
         Button:
             text: 'NAO'
             font_size: 30

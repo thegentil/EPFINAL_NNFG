@@ -9,6 +9,7 @@ Descrição breve: desenvolvimento do aplicativo  INSPERBRAIN
 
 from __future__ import print_function, division
 import codecs
+from random import choice
 
 #======================================================================================================================#
 """ ABRINDO OS ARQUIVOS E LIMPANDO-OS """
@@ -90,8 +91,17 @@ dicionarios = [dic_A, dic_B, dic_C]
 
 def teste_dics():
 
-    for e in dicionarios:
-        print(e)
-        print('')
+    d = choice(dicionarios)
+    k = list(d.keys())
+    c = choice(k)
 
-#teste_dics()
+    if c in dic_A:
+        print('A:', c)
+    if c in dic_B:
+        print('B:', c)
+    if c in dic_C:
+        print ('C:',c)
+
+teste_dics()
+
+

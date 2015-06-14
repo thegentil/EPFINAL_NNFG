@@ -98,59 +98,80 @@ class Sexta(Screen):
 
 class MyScreenManager(ScreenManager):
 
+    #CRIANDO AS VARIAVEIS A SEREM USADAS:
+
     user_input = None
     status = None
+    imagem_segunda = None
+    imagem_terca = None
+    imagem_quarta = None
+    imagem_quinta = None
+    imagem_sexta = None
 
     def variaveis(self):
 
         global user_input
         global status
+        global imagem_segunda
+        global imagem_terca
+        global imagem_quarta
+        global imagem_quinta
+        global imagem_sexta
 
         user_input = self.screens[0].ids["text_input"]
+
         status = self.screens[0].ids["status_label"]
+
+        imagem_segunda = self.screens[5].ids["image_segunda"]
+        imagem_terca = self.screens[6].ids["image_terca"]
+        imagem_quarta = self.screens[7].ids["image_quarta"]
+        imagem_quinta = self.screens[8].ids["image_quinta"]
+        imagem_sexta = self.screens[9].ids["image_sexta"]
+
+    #CRIANDO A FUNCAO QUE CHECA SE O USUARIO DIGITADO EXISTE:
 
     def checa_usuario(self, *args):
 
-        input = user_input.text.lower()
+        text_user_input = user_input.text.lower()
 
 
-        if input in dic_A:
+        if text_user_input in dic_A:
 
             global aluno
 
-            nome = dic_A[input]
+            nome = dic_A[text_user_input]
 
-            aluno = Aluno(nome, input, turma_A)
+            aluno = Aluno(nome, text_user_input, turma_A)
 
-            status.text = "Ola {0}".format(dic_A[input][0])
+            status.text = "Ola {0}".format(dic_A[text_user_input][0])
             status.color = [0,1,0,1]
 
             root_widget.current = 'Calendario'
 
 
-        elif input in dic_B:
+        elif text_user_input in dic_B:
 
             global aluno
 
-            nome = dic_B[input]
+            nome = dic_B[text_user_input]
 
-            aluno = Aluno(nome, input, turma_B)
+            aluno = Aluno(nome, text_user_input, turma_B)
 
-            status.text = "Ola {0}".format(dic_B[input][0])
+            status.text = "Ola {0}".format(dic_B[text_user_input][0])
             status.color = [0,1,0,1]
 
             root_widget.current = 'Calendario'
 
 
-        elif input in dic_C:
+        elif text_user_input in dic_C:
 
             global aluno
 
-            nome = dic_C[input]
+            nome = dic_C[text_user_input]
 
-            aluno = Aluno(nome, input, turma_C)
+            aluno = Aluno(nome, text_user_input, turma_C)
 
-            status.text = "Ola {0}".format(dic_C[input][0])
+            status.text = "Ola {0}".format(dic_C[text_user_input][0])
             status.color = [0,1,0,1]
 
             root_widget.current = 'Calendario'
@@ -176,6 +197,43 @@ class MyScreenManager(ScreenManager):
 
         #teste()
 
+    #CRIANDO A FUNCAO QUE ASSIMILA AS IMAGENS DOS HORARIOS:
+
+    def horarios(self):
+
+        try:
+            if aluno.turma == turma_A:
+
+                imagem_segunda.source = "segunda_A.png"
+                imagem_terca.source = "terca_A.png"
+                imagem_quarta.source = "quarta_A.png"
+                imagem_quinta.source = "quinta_A.png"
+                imagem_sexta.source = "sexta_A.png"
+
+            elif aluno.turma == turma_B:
+
+                imagem_segunda.source = "segunda_B.png"
+                imagem_terca.source = "terca_B.png"
+                imagem_quarta.source = "quarta_B.png"
+                imagem_quinta.source = "quinta_B.png"
+                imagem_sexta.source = "sexta_B.png"
+
+            elif aluno.turma == turma_C:
+
+                imagem_segunda.source = "segunda_C.png"
+                imagem_terca.source = "terca_C.png"
+                imagem_quarta.source = "quarta_C.png"
+                imagem_quinta.source = "quinta_C.png"
+                imagem_sexta.source = "sexta_C.png"
+
+            else:
+                pass
+
+        except AttributeError:
+            pass
+
+    #CRIANDO A FUNCAO QUE RESETA A TELA 'USUARIO' SE O USUARIO SAIR:
+
     def reset_user_screen(self, *args):
 
         user_input.text = ""
@@ -194,7 +252,6 @@ MyScreenManager:
     transition: FadeTransition()
 
     Usuario:
-
     Calendario:
     Mapa:
     Professores:
@@ -235,12 +292,13 @@ MyScreenManager:
                 color: [1,0,0,1]
 
         Button:
-            text: 'Ir'
+            text: 'Go!'
             font_size: 30
             size_hint_y: .1
             size_hint_x: .1
             pos_hint: {'center_x': .5, 'center_y':.4}
-            on_release: root.manager.checa_usuario()
+            on_press: root.manager.checa_usuario()
+            on_release: root.manager.horarios()
 
 <Calendario>:
     name: 'Calendario'
@@ -368,6 +426,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
+                id: image_segunda
                 source: 'Segunda_B.png'
                 size_hint: [1,1]
 
@@ -459,6 +518,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
+                id: image_terca
                 source: 'Terca_B.png'
                 size_hint: [1,1]
 
@@ -550,6 +610,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
+                id: image_quarta
                 source: 'Quarta_B.png'
                 size_hint: [1,1]
 
@@ -641,6 +702,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
+                id: image_quinta
                 source: 'Quinta_B.png'
                 size_hint: [1,1]
 
@@ -732,6 +794,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
+                id: image_sexta
                 source: 'Sexta_B.png'
                 size_hint: [1,1]
 
@@ -908,16 +971,16 @@ MyScreenManager:
         Button:
             text: 'SIM'
             font_size: 30
-            size_hint_y: .15
-            size_hint_x: .2
-            pos_hint: {'center_x': 0.4, 'center_y':.4}
+            size_hint_y: .2
+            size_hint_x: .3
+            pos_hint: {'center_x': 0.3, 'center_y':.4}
             on_release: root.manager.reset_user_screen()
         Button:
             text: 'NAO'
             font_size: 30
-            size_hint_y: .15
-            size_hint_x: .2
-            pos_hint: {'center_x': 0.6, 'center_y':.4}
+            size_hint_y: .2
+            size_hint_x: .3
+            pos_hint: {'center_x': 0.7, 'center_y':.4}
             on_release: app.root.current = 'Calendario'
 
 ''')
@@ -926,5 +989,9 @@ class ScreenManagerApp(App):
     def build(self):
         return root_widget
 
+teste_dics()
+
 ScreenManagerApp().run()
+
+
 

@@ -144,7 +144,7 @@ class MyScreenManager(ScreenManager):
 
 #CRIANDO A FUNCAO QUE CHECA SE O USUARIO DIGITADO EXISTE:
 
-    def checa_usuario(self, *args):
+    def checa_usuario(self):
 
         text_user_input = user_input.text.lower()
 
@@ -245,15 +245,6 @@ class MyScreenManager(ScreenManager):
 
         time.sleep(t)
 
-    def diminui_font_size(self, p):
-
-        button_go.font_size = button_go.font_size - (button_go.font_size*p)
-
-    def aumenta_font_size(self, f):
-
-        button_go.font_size = f
-
-
 
 root_widget = Builder.load_string('''
 
@@ -280,6 +271,11 @@ MyScreenManager:
 
     FloatLayout:
 
+        Button:
+            size_hint: .1,.1
+            pos_hint: {'center_x': .1, 'center_y': .8}
+            on_release: app.root.current = 'Calendario'
+
         Label:
             pos_hint: {'center_x': .5, 'center_y':.85}
             text: 'INSPERBRAIN'
@@ -300,6 +296,7 @@ MyScreenManager:
             Label:
                 text: "Login"
                 font_size: 20
+                pos_hint: {'center_x': .5, 'center_y':.5}
                 size_hint: [.3,1]
 
             TextInput:
@@ -308,7 +305,7 @@ MyScreenManager:
                 font_size: 30
                 multiline: False
                 on_text: root.manager.variaveis()
-                border: 4,4,4,4
+                on_text_validate: root.manager.checa_usuario()
 
         Label:
             id: status_label
@@ -1035,21 +1032,21 @@ MyScreenManager:
 
         Button:
             text: 'SIM'
-            font_size: 30
+            font_size: 40 if self.state == 'normal' else 30
             size_hint_y: .5
             size_hint_x: 1
             pos_hint: {'center_x': 0.5, 'center_y':.75}
             on_release: root.manager.reset_user_screen()
-            background_color: [0,255,0,1]
+            background_color: [0,255,0,1] if self.state == 'normal' else [0,255,0,.7]
 
         Button:
             text: 'NAO'
-            font_size: 30
+            font_size: 40 if self.state == 'normal' else 30
             size_hint_y: .5
             size_hint_x: 1
             pos_hint: {'center_x': 0.5, 'center_y':.25}
             on_release: app.root.current = 'Calendario'
-            background_color: [255,0,0,1]
+            background_color: [255,0,0,1] if self.state == 'normal' else [255,0,0,.7]
 
     FloatLayout:
 
@@ -1070,6 +1067,3 @@ class ScreenManagerApp(App):
 teste_dics()
 
 ScreenManagerApp().run()
-
-
-

@@ -111,6 +111,7 @@ class MyScreenManager(ScreenManager):
     imagem_quinta = None
     imagem_sexta = None
     user_screen_grid_layout = None
+    button_go = None
 
     def variaveis(self):
 
@@ -122,10 +123,13 @@ class MyScreenManager(ScreenManager):
         global imagem_quinta
         global imagem_sexta
         global user_screen_grid_layout
+        global button_go
 
         user_input = self.screens[0].ids["text_input"]
 
         status = self.screens[0].ids["status_label"]
+
+        button_go = self.screens[0].ids["button_go"]
 
         user_screen_grid_layout = self.screens[0].ids["grid_layout_user_screen"]
 
@@ -141,8 +145,6 @@ class MyScreenManager(ScreenManager):
     def checa_usuario(self, *args):
 
         text_user_input = user_input.text.lower()
-
-        user_screen_grid_layout.cols = 3
 
         if text_user_input in dic_A:
 
@@ -237,6 +239,19 @@ class MyScreenManager(ScreenManager):
 
         root_widget.current = 'Usuario'
 
+    def delay(self, t):
+
+        time.sleep(t)
+
+    def diminui_font_size(self, p):
+
+        button_go.font_size = button_go.font_size - (button_go.font_size*p)
+
+    def aumenta_font_size(self, f):
+
+        button_go.font_size = f
+
+
 
 root_widget = Builder.load_string('''
 
@@ -272,38 +287,46 @@ MyScreenManager:
 
         GridLayout:
             id: grid_layout_user_screen
+            spacing: [0,0]
             size_hint_y: .08
-            size_hint_x: 1
+            size_hint_x: .8
             height: 80
             pos_hint: {'center_x': .5, 'center_y':.6}
-            cols: 3
+            cols: 2
+            rows: 1
 
             Label:
                 text: "Login"
-                font_size: 30
+                font_size: 20
+                size_hint: [.3,1]
 
             TextInput:
                 id: text_input
+                size_hint: [1,1]
                 font_size: 30
                 multiline: False
                 on_text: root.manager.variaveis()
 
-            Label:
-                id: status_label
-                text: ""
-                font_size: 15
-                color: [1,0,0,1]
+        Label:
+            id: status_label
+            text: ""
+            font_size: 15
+            color: [0,0,0,1]
+            size_hint: [1,.15]
+            pos_hint: {'center_x': .5, 'center_y':.5}
+
 
         Button:
+            id: button_go
             text: 'Go!'
-            font_size: 30
-            size_hint_y: .1
-            size_hint_x: .1
-            pos_hint: {'center_x': .5, 'center_y':.35}
-            on_press: root.manager.checa_usuario()
-            on_release: root.manager.horarios()
+            font_size: 40
+            size_hint_y: .3
+            size_hint_x: 1
+            pos_hint: {'center_x': .5, 'center_y':.15}
+            on_press: root.manager.diminui_font_size(0.28), root.manager.checa_usuario()
+            on_release: root.manager.aumenta_font_size(40), root.manager.horarios()
             background_normal: ''
-            background_color: [1,0,0,1]
+            background_color: [255,0,0,1]
 
 <Calendario>:
     name: 'Calendario'
@@ -950,13 +973,15 @@ MyScreenManager:
         Label:
             text: 'Professores'
             font_size: 30
-            size_hint: [1,.1]
+            size_hint: [1,1]
+            pos_hint: {'center_x': .5, 'center_y':.5}
 
         BoxLayout:
+            orinetation: 'horizontal'
+            size_hint: [1, .1]
 
             Button:
                 font_size: 20
-                size_hint: [1,.2]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
@@ -967,7 +992,6 @@ MyScreenManager:
                     allow_stretch: True
             Button:
                 font_size: 20
-                size_hint: [1,.2]
                 on_release: app.root.current = 'Calendario'
 
                 Image:
@@ -979,7 +1003,6 @@ MyScreenManager:
 
             Button:
                 font_size: 20
-                size_hint: [1,.2]
                 on_release: app.root.current = 'Professores'
 
                 Image:
@@ -991,7 +1014,6 @@ MyScreenManager:
 
             Button:
                 font_size: 20
-                size_hint: [1,.2]
                 on_release: app.root.current = 'Sair'
 
                 Image:

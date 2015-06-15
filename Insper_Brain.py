@@ -6,8 +6,10 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.uix.image import Image
 from kivy.uix.widget import Widget
+
 import time
 import random
+
 from Dic_turmas import *
 from Classes_dos_objetos import *
 
@@ -98,7 +100,8 @@ class Sexta(Screen):
 
 class MyScreenManager(ScreenManager):
 
-    #CRIANDO AS VARIAVEIS A SEREM USADAS:
+
+#CRIANDO AS VARIAVEIS A SEREM USADAS:
 
     user_input = None
     status = None
@@ -107,6 +110,7 @@ class MyScreenManager(ScreenManager):
     imagem_quarta = None
     imagem_quinta = None
     imagem_sexta = None
+    user_screen_grid_layout = None
 
     def variaveis(self):
 
@@ -117,10 +121,13 @@ class MyScreenManager(ScreenManager):
         global imagem_quarta
         global imagem_quinta
         global imagem_sexta
+        global user_screen_grid_layout
 
         user_input = self.screens[0].ids["text_input"]
 
         status = self.screens[0].ids["status_label"]
+
+        user_screen_grid_layout = self.screens[0].ids["grid_layout_user_screen"]
 
         imagem_segunda = self.screens[5].ids["image_segunda"]
         imagem_terca = self.screens[6].ids["image_terca"]
@@ -128,12 +135,14 @@ class MyScreenManager(ScreenManager):
         imagem_quinta = self.screens[8].ids["image_quinta"]
         imagem_sexta = self.screens[9].ids["image_sexta"]
 
-    #CRIANDO A FUNCAO QUE CHECA SE O USUARIO DIGITADO EXISTE:
+
+#CRIANDO A FUNCAO QUE CHECA SE O USUARIO DIGITADO EXISTE:
 
     def checa_usuario(self, *args):
 
         text_user_input = user_input.text.lower()
 
+        user_screen_grid_layout.cols = 3
 
         if text_user_input in dic_A:
 
@@ -182,22 +191,8 @@ class MyScreenManager(ScreenManager):
             status.text = "Usuario Invalido"
             status.color = [1,0,0,1]
 
-            pass
 
-
-        def teste():
-
-            try:
-                for e in aluno.nome:
-                    print(e)
-
-            except:
-
-                print('inexistente')
-
-        #teste()
-
-    #CRIANDO A FUNCAO QUE ASSIMILA AS IMAGENS DOS HORARIOS:
+#CRIANDO A FUNCAO QUE ASSIMILA AS IMAGENS DOS HORARIOS:
 
     def horarios(self):
 
@@ -232,7 +227,7 @@ class MyScreenManager(ScreenManager):
         except AttributeError:
             pass
 
-    #CRIANDO A FUNCAO QUE RESETA A TELA 'USUARIO' SE O USUARIO SAIR:
+#CRIANDO A FUNCAO QUE RESETA A TELA 'USUARIO' SE O USUARIO SAIR:
 
     def reset_user_screen(self, *args):
 
@@ -265,26 +260,34 @@ MyScreenManager:
 
 <Usuario>:
     name: 'Usuario'
+
     FloatLayout:
+
         Label:
+            pos_hint: {'center_x': .5, 'center_y':.85}
             text: 'INSPERBRAIN'
             font_size: 50
             size_hint_y: 1.7
-            size_hint_x: .95
+            size_hint_x: 1
+
         GridLayout:
-            size_hint_y: 0.08
-            size_hint_x: .8
+            id: grid_layout_user_screen
+            size_hint_y: .08
+            size_hint_x: 1
             height: 80
             pos_hint: {'center_x': .5, 'center_y':.6}
             cols: 3
+
             Label:
                 text: "Login"
                 font_size: 30
+
             TextInput:
                 id: text_input
                 font_size: 30
                 multiline: False
                 on_text: root.manager.variaveis()
+
             Label:
                 id: status_label
                 text: ""
@@ -296,9 +299,11 @@ MyScreenManager:
             font_size: 30
             size_hint_y: .1
             size_hint_x: .1
-            pos_hint: {'center_x': .5, 'center_y':.4}
+            pos_hint: {'center_x': .5, 'center_y':.35}
             on_press: root.manager.checa_usuario()
             on_release: root.manager.horarios()
+            background_normal: ''
+            background_color: [1,0,0,1]
 
 <Calendario>:
     name: 'Calendario'
@@ -307,7 +312,6 @@ MyScreenManager:
         orientation: 'vertical'
 
         BoxLayout:
-
             size_hint: [1,.1]
 
             Button:
@@ -315,6 +319,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
+
             Button:
                 text: 'Ter'
                 font_size: 20
@@ -345,6 +350,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
                     source: 'mapa.png'
                     size_hint: [1,1]
@@ -355,6 +361,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Calendario'
+
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -366,6 +373,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
                     source: 'professores.png'
                     size_hint: [1,1]
@@ -377,6 +385,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,.1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
                     source: 'sair.png'
                     size_hint: [.3,.3]
@@ -391,7 +400,6 @@ MyScreenManager:
         orientation: 'vertical'
 
         BoxLayout:
-
             size_hint: [1,.11]
 
             Button:
@@ -437,6 +445,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
                     source: 'mapa.png'
                     size_hint: [1,1]
@@ -447,6 +456,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Calendario'
+
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -458,6 +468,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
                     source: 'professores.png'
                     size_hint: [1,1]
@@ -469,6 +480,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
                     source: 'sair.png'
                     size_hint: [.3,.3]
@@ -483,7 +495,6 @@ MyScreenManager:
         orientation: 'vertical'
 
         BoxLayout:
-
             size_hint: [1,.11]
 
             Button:
@@ -491,6 +502,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
+
             Button:
                 text: 'Ter'
                 font_size: 20
@@ -517,6 +529,7 @@ MyScreenManager:
 
         BoxLayout:
             size_hint: [1,1]
+
             Image:
                 id: image_terca
                 source: 'Terca_B.png'
@@ -529,6 +542,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
                     source: 'mapa.png'
                     size_hint: [1,1]
@@ -539,6 +553,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Calendario'
+
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -550,6 +565,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
                     source: 'professores.png'
                     size_hint: [1,1]
@@ -561,6 +577,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
                     source: 'sair.png'
                     size_hint: [.3,.3]
@@ -575,7 +592,6 @@ MyScreenManager:
         orientation: 'vertical'
 
         BoxLayout:
-
             size_hint: [1,.11]
 
             Button:
@@ -583,11 +599,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
+
             Button:
                 text: 'Ter'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Terca'
+
 
             Button:
                 text: 'Qua'
@@ -609,6 +627,7 @@ MyScreenManager:
 
         BoxLayout:
             size_hint: [1,1]
+
             Image:
                 id: image_quarta
                 source: 'Quarta_B.png'
@@ -621,6 +640,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
                     source: 'mapa.png'
                     size_hint: [1,1]
@@ -631,6 +651,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Calendario'
+
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -642,6 +663,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
                     source: 'professores.png'
                     size_hint: [1,1]
@@ -653,6 +675,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
                     source: 'sair.png'
                     size_hint: [.3,.3]
@@ -667,7 +690,6 @@ MyScreenManager:
         orientation: 'vertical'
 
         BoxLayout:
-
             size_hint: [1,.11]
 
             Button:
@@ -675,17 +697,20 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
+
             Button:
                 text: 'Ter'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Terca'
 
+
             Button:
                 text: 'Qua'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
+
 
             Button:
                 text: 'Qui'
@@ -701,6 +726,7 @@ MyScreenManager:
 
         BoxLayout:
             size_hint: [1,1]
+
             Image:
                 id: image_quinta
                 source: 'Quinta_B.png'
@@ -713,6 +739,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
                     source: 'mapa.png'
                     size_hint: [1,1]
@@ -723,6 +750,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Calendario'
+
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -734,6 +762,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
                     source: 'professores.png'
                     size_hint: [1,1]
@@ -745,6 +774,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
                     source: 'sair.png'
                     size_hint: [.3,.3]
@@ -759,7 +789,6 @@ MyScreenManager:
         orientation: 'vertical'
 
         BoxLayout:
-
             size_hint: [1,.11]
 
             Button:
@@ -767,6 +796,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
+
             Button:
                 text: 'Ter'
                 font_size: 20
@@ -805,6 +835,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
                     source: 'mapa.png'
                     size_hint: [1,1]
@@ -815,6 +846,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Calendario'
+
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -826,6 +858,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
                     source: 'professores.png'
                     size_hint: [1,1]
@@ -837,6 +870,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
                     source: 'sair.png'
                     size_hint: [.3,.3]
@@ -852,6 +886,7 @@ MyScreenManager:
 
         BoxLayout:
             size_hint: [1,1]
+
             Image:
                 source: 'mapa_insper.png'
                 size_hint: [1,1]
@@ -863,6 +898,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
                     source: 'mapa.png'
                     size_hint: [1,1]
@@ -873,6 +909,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Calendario'
+
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -884,6 +921,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
                     source: 'professores.png'
                     size_hint: [1,1]
@@ -895,6 +933,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
                     source: 'sair.png'
                     size_hint: [.3,.3]
@@ -907,6 +946,7 @@ MyScreenManager:
 
     BoxLayout:
         orientation: 'vertical'
+
         Label:
             text: 'Professores'
             font_size: 30
@@ -914,12 +954,11 @@ MyScreenManager:
 
         BoxLayout:
 
-        BoxLayout:
-
             Button:
                 font_size: 20
                 size_hint: [1,.2]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
                     source: 'mapa.png'
                     size_hint: [1,1]
@@ -930,6 +969,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,.2]
                 on_release: app.root.current = 'Calendario'
+
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -941,6 +981,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,.2]
                 on_release: app.root.current = 'Professores'
+
                 Image:
                     source: 'professores.png'
                     size_hint: [1,1]
@@ -952,6 +993,7 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,.2]
                 on_release: app.root.current = 'Sair'
+
                 Image:
                     source: 'sair.png'
                     size_hint: [.3,.3]
@@ -963,11 +1005,14 @@ MyScreenManager:
     name: 'Sair'
 
     FloatLayout:
+
         Label:
-            text: 'Tem certeza que deseja sair?'
+            text: 'Quer mesmo sair?'
             font_size: 50
-            size_hint_y: 1.7
-            size_hint_x: .95
+            pos_hint: {'center_x': 0.5, 'center_y':.8}
+            size_hint_y: .1
+            size_hint_x: 1
+
         Button:
             text: 'SIM'
             font_size: 30
@@ -975,6 +1020,7 @@ MyScreenManager:
             size_hint_x: .3
             pos_hint: {'center_x': 0.3, 'center_y':.4}
             on_release: root.manager.reset_user_screen()
+
         Button:
             text: 'NAO'
             font_size: 30

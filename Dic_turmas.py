@@ -76,7 +76,8 @@ for e in arquivo_limpo_C:           #mesmo para o dic_C
     dic_C[e[2]] = [e[0], e[1]]
 
 
-dic_profs = {"FABIO ORFALI": ["MODELAGEM E SIMULACAO DO MUNOD FISICO", ['A']],
+dic_profs = {
+             "FABIO ORFALI": ["MODELAGEM E SIMULACAO DO MUNOD FISICO", ['A']],
              "FREDERICO AUGUSTO ALEM BARBIERI": ["INSTRUMENTACAO E MEDICAO", ['A', 'B']],
              "HELOISA MARIA DOMINGUES NEVES": ["A NATUREZA DO DESIGN", ['A', 'C']],
              "VINICIUS LICKS": ["GRANDES DESAFIOS DA ENGENHARIA", ['A', 'B', 'C']],
@@ -85,15 +86,34 @@ dic_profs = {"FABIO ORFALI": ["MODELAGEM E SIMULACAO DO MUNOD FISICO", ['A']],
              "PAULINA ACHURRA": ["MODELAGEM E SIMULACAO DO MUNOD FISICO", ['B']],
              "LUCIANO PEREIRA SOARES": ["DESIGN DE SOFTWARE", ['C']],
              "FERNANDO MOYA ORSATTI": ["MODELAGEM E SIMULACAO DO MUNOD FISICO", ['C']],
-             "MAURICIO SILVA FERREIRA": ["INSTRUMENTACAO E MEDICAO", ['C']]}
+             "MAURICIO SILVA FERREIRA": ["INSTRUMENTACAO E MEDICAO", ['C']]
+             }
 
 dicionarios = [dic_A, dic_B, dic_C]
 
-def teste_dics():
+def teste_dics(classe = ''):
 
-    d = choice(dicionarios)
-    k = list(d.keys())
-    c = choice(k)
+    classe = str(classe)
+
+    if classe == 'A':
+        d = dic_A
+        k = list(d.keys())
+        c = choice(k)
+
+    elif classe == 'B':
+        d = dic_B
+        k = list(d.keys())
+        c = choice(k)
+
+    elif classe == 'C':
+        d = dic_C
+        k = list(d.keys())
+        c = choice(k)
+
+    else:
+        d = choice(dicionarios)
+        k = list(d.keys())
+        c = choice(k)
 
     if c in dic_A:
         print('A:', c)
@@ -102,6 +122,6 @@ def teste_dics():
     if c in dic_C:
         print ('C:',c)
 
-teste_dics()
+#teste_dics()
 
 

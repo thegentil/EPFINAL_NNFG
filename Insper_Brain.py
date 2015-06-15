@@ -6,6 +6,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.uix.image import Image
 from kivy.uix.widget import Widget
+from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
 
 import time
 import random
@@ -306,6 +308,7 @@ MyScreenManager:
                 font_size: 30
                 multiline: False
                 on_text: root.manager.variaveis()
+                border: 4,4,4,4
 
         Label:
             id: status_label
@@ -319,14 +322,15 @@ MyScreenManager:
         Button:
             id: button_go
             text: 'Go!'
-            font_size: 40
+            font_size: 40 if self.state == 'normal' else 30
             size_hint_y: .3
             size_hint_x: 1
             pos_hint: {'center_x': .5, 'center_y':.15}
-            on_press: root.manager.diminui_font_size(0.28), root.manager.checa_usuario()
-            on_release: root.manager.aumenta_font_size(40), root.manager.horarios()
+            on_press: root.manager.checa_usuario()
+            on_release: root.manager.horarios()
             background_normal: ''
-            background_color: [255,0,0,1]
+            background_color: [255,0,0,1] if self.state == 'normal' else [255,0,0,.7]
+
 
 <Calendario>:
     name: 'Calendario'
@@ -1026,30 +1030,36 @@ MyScreenManager:
 <Sair>:
     name: 'Sair'
 
+    BoxLayout:
+        orientation: 'vertical'
+
+        Button:
+            text: 'SIM'
+            font_size: 30
+            size_hint_y: .5
+            size_hint_x: 1
+            pos_hint: {'center_x': 0.5, 'center_y':.75}
+            on_release: root.manager.reset_user_screen()
+            background_color: [0,255,0,1]
+
+        Button:
+            text: 'NAO'
+            font_size: 30
+            size_hint_y: .5
+            size_hint_x: 1
+            pos_hint: {'center_x': 0.5, 'center_y':.25}
+            on_release: app.root.current = 'Calendario'
+            background_color: [255,0,0,1]
+
     FloatLayout:
 
         Label:
             text: 'Quer mesmo sair?'
             font_size: 50
-            pos_hint: {'center_x': 0.5, 'center_y':.8}
+            pos_hint: {'center_x': .5, 'center_y':.5}
             size_hint_y: .1
             size_hint_x: 1
-
-        Button:
-            text: 'SIM'
-            font_size: 30
-            size_hint_y: .2
-            size_hint_x: .3
-            pos_hint: {'center_x': 0.3, 'center_y':.4}
-            on_release: root.manager.reset_user_screen()
-
-        Button:
-            text: 'NAO'
-            font_size: 30
-            size_hint_y: .2
-            size_hint_x: .3
-            pos_hint: {'center_x': 0.7, 'center_y':.4}
-            on_release: app.root.current = 'Calendario'
+            color:[0,0,0,1]
 
 ''')
 

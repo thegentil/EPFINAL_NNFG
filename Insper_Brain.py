@@ -156,7 +156,7 @@ class MyScreenManager(ScreenManager):
 
             aluno = Aluno(nome, text_user_input, turma_A)
 
-            status.text = "Ola {0}".format(dic_A[text_user_input][0])
+            status.text = u"Ola {0}".format(dic_A[text_user_input][0])
             status.color = [0,1,0,1]
 
             root_widget.current = 'Calendario'
@@ -170,7 +170,7 @@ class MyScreenManager(ScreenManager):
 
             aluno = Aluno(nome, text_user_input, turma_B)
 
-            status.text = "Ola {0}".format(dic_B[text_user_input][0])
+            status.text = u"Ola {0}".format(dic_B[text_user_input][0])
             status.color = [0,1,0,1]
 
             root_widget.current = 'Calendario'
@@ -184,7 +184,7 @@ class MyScreenManager(ScreenManager):
 
             aluno = Aluno(nome, text_user_input, turma_C)
 
-            status.text = "Ola {0}".format(dic_C[text_user_input][0])
+            status.text = u"Ola {0}".format(dic_C[text_user_input][0])
             status.color = [0,1,0,1]
 
             root_widget.current = 'Calendario'

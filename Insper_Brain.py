@@ -8,6 +8,7 @@ from kivy.uix.image import Image
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+from kivy.uix.scatter import Scatter
 
 import time
 import random
@@ -908,7 +909,7 @@ MyScreenManager:
     BoxLayout:
         orientation: 'vertical'
 
-        BoxLayout:
+        Scatter:
             size_hint: [1,1]
 
             Image:

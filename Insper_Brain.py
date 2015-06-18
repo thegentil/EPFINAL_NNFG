@@ -87,6 +87,33 @@ class Calendario(Screen):
 class Professores(Screen):
     pass
 
+class Heloisa(Screen):
+    pass
+
+class Leonidas(Screen):
+    pass
+
+class Mauricio (Screen):
+    pass
+
+class FabioO (Screen):
+    pass
+
+class Paulina (Screen):
+    pass
+
+class Fernando (Screen):
+    pass
+
+class FabioM (Screen):
+    pass
+
+class Luciano (Screen):
+    pass
+
+class Vinicius (Screen):
+    pass
+
 class Sair(Screen):
     pass
 
@@ -289,6 +316,8 @@ MyScreenManager:
     Quarta:
     Quinta:
     Sexta:
+
+    Heloisa:
 
 <Usuario>:
     name: 'Usuario'
@@ -918,6 +947,65 @@ MyScreenManager:
                     center_y: self.parent.center_y
                     allow_stretch: True
 
+<Heloisa>:
+    name: 'Heloisa'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'helo.JPG'
+                size_hint: [1,1]
+
+        BoxLayout:
+            size_hint: [1,.1]
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+
 <Professores>:
     name: 'Professores'
 
@@ -929,6 +1017,42 @@ MyScreenManager:
             font_size: 30
             size_hint: [1,1]
             pos_hint: {'center_x': .5, 'center_y':.5}
+
+        Button:
+            text: 'Heloisa Neves'
+            on_release: app.root.current = 'Heloisa'
+
+        Button:
+            text: 'Leonidas Junior'
+            on_press: print ('Leonidas Junior')
+
+        Button:
+            text: 'Mauricio Ferreira'
+            on_press: print ('Prof')
+
+        Button:
+            text: 'Fabio Orfali'
+            on_press: print ('Fabio Orfali')
+
+        Button:
+            text: 'Paulina Achurra'
+            on_press: print ('Paulina Achurra')
+
+        Button:
+            text: 'Fernando Orsatti'
+            on_press: print ('Fernando Orsatti')
+
+        Button:
+            text: 'Fabio Miranda'
+            on_press: print ('Fernando Orsatti')
+
+        Button:
+            text: 'Luciano Soares'
+            on_press: print ('Fernando Orsatti')
+
+        Button:
+            text: 'Vinicius Licks'
+            on_press: print ('Fernando Orsatti')
 
         BoxLayout:
             orinetation: 'horizontal'

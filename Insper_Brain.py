@@ -10,6 +10,7 @@ from kivy.uix.image import Image
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+from kivy.uix.scatter import Scatter
 
 import time
 import random
@@ -177,6 +178,11 @@ class MyScreenManager(ScreenManager):
 
             root_widget.current = 'Segunda'
 
+            status.text = u"Ola {0}".format(dic_A[text_user_input][0])
+            status.color = [0,1,0,1]
+
+            root_widget.current = 'Calendario'
+
 
         elif text_user_input in dic_B:
 
@@ -188,6 +194,11 @@ class MyScreenManager(ScreenManager):
 
             root_widget.current = 'Segunda'
 
+            status.text = u"Ola {0}".format(dic_B[text_user_input][0])
+            status.color = [0,1,0,1]
+
+            root_widget.current = 'Calendario'
+
 
         elif text_user_input in dic_C:
 
@@ -197,7 +208,13 @@ class MyScreenManager(ScreenManager):
 
             aluno = Aluno(nome, text_user_input, turma_C)
 
+
             root_widget.current = 'Segunda'
+
+            status.text = u"Ola {0}".format(dic_C[text_user_input][0])
+            status.color = [0,1,0,1]
+
+            root_widget.current = 'Calendario'
 
 
         else:
@@ -864,7 +881,7 @@ MyScreenManager:
     BoxLayout:
         orientation: 'vertical'
 
-        BoxLayout:
+        Scatter:
             size_hint: [1,1]
 
             Image:

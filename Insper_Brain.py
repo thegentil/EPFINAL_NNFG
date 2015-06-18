@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 from kivy.app import App
 from kivy.base import runTouchApp
 from kivy.lang import Builder
@@ -17,7 +19,7 @@ from Classes_dos_objetos import *
 
 #======================================================================================================================#
 
-#CRIANDO OS PROFESSORES:
+#CRIANDO A LISTA DOS PROFESSORES:
 
 professores = []
 for p in dic_profs:
@@ -62,14 +64,17 @@ for p in professores:
 
 #CRIANDO O USUARIO:
 
-aluno = None
+aluno = None    # armazena os dados do usuario
 
 #======================================================================================================================#
 
-#CRIANDO A INTERFACE:
+#CLASSES QUE DETERMINAM TELAS
 
 
 class Usuario(Screen):
+    pass
+
+class Bem_Vindo(Screen):
     pass
 
 class Mapa(Screen):
@@ -100,6 +105,10 @@ class Sexta(Screen):
     pass
 
 
+#======================================================================================================================#
+
+#CLASSE QUE COORDENA AS TELAS:
+
 class MyScreenManager(ScreenManager):
 
 
@@ -114,6 +123,7 @@ class MyScreenManager(ScreenManager):
     imagem_sexta = None
     user_screen_grid_layout = None
     button_go = None
+    bem_vindo_label = None
 
     def variaveis(self):
 
@@ -126,20 +136,29 @@ class MyScreenManager(ScreenManager):
         global imagem_sexta
         global user_screen_grid_layout
         global button_go
+        global bem_vindo_label
+
+
+        #TELA USUARIO:
 
         user_input = self.screens[0].ids["text_input"]
-
         status = self.screens[0].ids["status_label"]
-
         button_go = self.screens[0].ids["button_go"]
-
         user_screen_grid_layout = self.screens[0].ids["grid_layout_user_screen"]
 
-        imagem_segunda = self.screens[5].ids["image_segunda"]
-        imagem_terca = self.screens[6].ids["image_terca"]
-        imagem_quarta = self.screens[7].ids["image_quarta"]
-        imagem_quinta = self.screens[8].ids["image_quinta"]
-        imagem_sexta = self.screens[9].ids["image_sexta"]
+
+        #TELA BEM_VINDO:
+
+        bem_vindo_label = self.screens[1].ids["bem_vindo_label"]
+
+
+        #TELA CALENDARIO:
+
+        imagem_segunda = self.screens[6].ids["image_segunda"]
+        imagem_terca = self.screens[7].ids["image_terca"]
+        imagem_quarta = self.screens[8].ids["image_quarta"]
+        imagem_quinta = self.screens[9].ids["image_quinta"]
+        imagem_sexta = self.screens[10].ids["image_sexta"]
 
 
 #CRIANDO A FUNCAO QUE CHECA SE O USUARIO DIGITADO EXISTE:
@@ -156,10 +175,7 @@ class MyScreenManager(ScreenManager):
 
             aluno = Aluno(nome, text_user_input, turma_A)
 
-            status.text = "Ola {0}".format(dic_A[text_user_input][0])
-            status.color = [0,1,0,1]
-
-            root_widget.current = 'Calendario'
+            root_widget.current = 'Segunda'
 
 
         elif text_user_input in dic_B:
@@ -170,10 +186,7 @@ class MyScreenManager(ScreenManager):
 
             aluno = Aluno(nome, text_user_input, turma_B)
 
-            status.text = "Ola {0}".format(dic_B[text_user_input][0])
-            status.color = [0,1,0,1]
-
-            root_widget.current = 'Calendario'
+            root_widget.current = 'Segunda'
 
 
         elif text_user_input in dic_C:
@@ -184,15 +197,12 @@ class MyScreenManager(ScreenManager):
 
             aluno = Aluno(nome, text_user_input, turma_C)
 
-            status.text = "Ola {0}".format(dic_C[text_user_input][0])
-            status.color = [0,1,0,1]
-
-            root_widget.current = 'Calendario'
+            root_widget.current = 'Segunda'
 
 
         else:
 
-            status.text = "Usuario Invalido"
+            status.text = u"Usuário Inválido"
             status.color = [1,0,0,1]
 
 
@@ -233,7 +243,11 @@ class MyScreenManager(ScreenManager):
 
 #CRIANDO A FUNCAO QUE RESETA A TELA 'USUARIO' SE O USUARIO SAIR:
 
-    def reset_user_screen(self, *args):
+    def reset_user_screen(self):
+
+        global aluno
+
+        aluno = None
 
         user_input.text = ""
 
@@ -241,9 +255,21 @@ class MyScreenManager(ScreenManager):
 
         root_widget.current = 'Usuario'
 
+#CRIANDO UMA FUNCAO DE DELAY:
+
     def delay(self, t):
 
         time.sleep(t)
+
+#CRIANDO A FUNCAO QUE RETORNARA O NOME DO USUARIO NA TELA:
+
+    def nome_usuario(self):
+
+        bem_vindo_label.text = aluno.nome
+
+#======================================================================================================================#
+
+#STRING QUE CONSTROI O PROGRAMA:
 
 
 root_widget = Builder.load_string('''
@@ -255,6 +281,7 @@ MyScreenManager:
     transition: FadeTransition()
 
     Usuario:
+    Bem_Vindo:
     Calendario:
     Mapa:
     Professores:
@@ -272,9 +299,10 @@ MyScreenManager:
     FloatLayout:
 
         Button:
+            text: "FREE_ENTER"
             size_hint: .1,.1
             pos_hint: {'center_x': .1, 'center_y': .8}
-            on_release: app.root.current = 'Calendario'
+            on_release: app.root.current = 'Segunda'
 
         Label:
             pos_hint: {'center_x': .5, 'center_y':.85}
@@ -291,7 +319,6 @@ MyScreenManager:
             height: 80
             pos_hint: {'center_x': .5, 'center_y':.6}
             cols: 2
-            rows: 1
 
             Label:
                 text: "Login"
@@ -305,7 +332,7 @@ MyScreenManager:
                 font_size: 30
                 multiline: False
                 on_text: root.manager.variaveis()
-                on_text_validate: root.manager.checa_usuario()
+                on_text_validate: root.manager.checa_usuario(), root.manager.horarios()
 
         Label:
             id: status_label
@@ -329,93 +356,24 @@ MyScreenManager:
             background_color: [255,0,0,1] if self.state == 'normal' else [255,0,0,.7]
 
 
-<Calendario>:
-    name: 'Calendario'
+<Bem_Vindo>:
+    name: "Bem_Vindo"
 
     BoxLayout:
         orientation: 'vertical'
+        size_hint: [1,1]
 
-        BoxLayout:
-            size_hint: [1,.1]
+        Label:
+            text: "Bem Vindo,"
+            font_size: 30
+            color: [0,1,0,1]
 
-            Button:
-                text: 'Seg'
-                font_size: 20
-                size_hint: [1,1]
-                on_release: app.root.current = 'Segunda'
+        Label:
+            id: bem_vindo_label
+            text: ""
+            font_size: 50
+            color: [0,1,0,1]
 
-            Button:
-                text: 'Ter'
-                font_size: 20
-                size_hint: [1,1]
-                on_release: app.root.current = 'Terca'
-
-            Button:
-                text: 'Qua'
-                font_size: 20
-                size_hint: [1,1]
-                on_release: app.root.current = 'Quarta'
-
-            Button:
-                text: 'Qui'
-                font_size: 20
-                size_hint: [1,1]
-                on_release: app.root.current = 'Quinta'
-
-            Button:
-                text: 'Sex'
-                font_size: 20
-                size_hint: [1,1]
-                on_release: app.root.current = 'Sexta'
-
-        BoxLayout:
-
-            Button:
-                font_size: 20
-                size_hint: [1,.1]
-                on_release: app.root.current = 'Mapa'
-
-                Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
-                    center_x: self.parent.center_x
-                    center_y: self.parent.center_y
-                    allow_stretch: True
-            Button:
-                font_size: 20
-                size_hint: [1,.1]
-                on_release: app.root.current = 'Calendario'
-
-                Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
-                    center_x: self.parent.center_x
-                    center_y: self.parent.center_y
-                    allow_stretch: True
-
-            Button:
-                font_size: 20
-                size_hint: [1,.1]
-                on_release: app.root.current = 'Professores'
-
-                Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
-                    center_x: self.parent.center_x
-                    center_y: self.parent.center_y
-                    allow_stretch: True
-
-            Button:
-                font_size: 20
-                size_hint: [1,.1]
-                on_release: app.root.current = 'Sair'
-
-                Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
-                    center_x: self.parent.center_x
-                    center_y: self.parent.center_y
-                    allow_stretch: True
 
 <Segunda>:
     name: 'Segunda'
@@ -455,12 +413,10 @@ MyScreenManager:
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
 
-        BoxLayout:
+        Image:
+            id: image_segunda
+            source: 'Segunda_B.png'
             size_hint: [1,1]
-            Image:
-                id: image_segunda
-                source: 'Segunda_B.png'
-                size_hint: [1,1]
 
         BoxLayout:
             size_hint: [1,.11]
@@ -479,7 +435,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
 
                 Image:
                     source: 'calendario.png'
@@ -576,7 +532,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
 
                 Image:
                     source: 'calendario.png'
@@ -674,7 +630,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
 
                 Image:
                     source: 'calendario.png'
@@ -773,7 +729,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
 
                 Image:
                     source: 'calendario.png'
@@ -869,7 +825,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
 
                 Image:
                     source: 'calendario.png'
@@ -932,7 +888,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
 
                 Image:
                     source: 'calendario.png'
@@ -993,11 +949,11 @@ MyScreenManager:
                     allow_stretch: True
             Button:
                 font_size: 20
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
 
                 Image:
                     source: 'calendario.png'
-                    size_hint: [1,1]
+                    size_hint: [1,.1]
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1040,12 +996,12 @@ MyScreenManager:
             background_color: [0,255,0,1] if self.state == 'normal' else [0,255,0,.7]
 
         Button:
-            text: 'NAO'
+            text: 'NÃO'
             font_size: 40 if self.state == 'normal' else 30
             size_hint_y: .5
             size_hint_x: 1
             pos_hint: {'center_x': 0.5, 'center_y':.25}
-            on_release: app.root.current = 'Calendario'
+            on_release: app.root.current = 'Segunda'
             background_color: [255,0,0,1] if self.state == 'normal' else [255,0,0,.7]
 
     FloatLayout:

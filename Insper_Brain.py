@@ -155,11 +155,11 @@ class MyScreenManager(ScreenManager):
 
         #TELA CALENDARIO:
 
-        imagem_segunda = self.screens[6].ids["image_segunda"]
-        imagem_terca = self.screens[7].ids["image_terca"]
-        imagem_quarta = self.screens[8].ids["image_quarta"]
-        imagem_quinta = self.screens[9].ids["image_quinta"]
-        imagem_sexta = self.screens[10].ids["image_sexta"]
+        imagem_segunda = self.screens[5].ids["image_segunda"]
+        imagem_terca = self.screens[6].ids["image_terca"]
+        imagem_quarta = self.screens[7].ids["image_quarta"]
+        imagem_quinta = self.screens[8].ids["image_quinta"]
+        imagem_sexta = self.screens[9].ids["image_sexta"]
 
 
 #CRIANDO A FUNCAO QUE CHECA SE O USUARIO DIGITADO EXISTE:
@@ -178,12 +178,6 @@ class MyScreenManager(ScreenManager):
 
             root_widget.current = 'Segunda'
 
-            status.text = u"Ola {0}".format(dic_A[text_user_input][0])
-            status.color = [0,1,0,1]
-
-            root_widget.current = 'Calendario'
-
-
         elif text_user_input in dic_B:
 
             global aluno
@@ -194,12 +188,6 @@ class MyScreenManager(ScreenManager):
 
             root_widget.current = 'Segunda'
 
-            status.text = u"Ola {0}".format(dic_B[text_user_input][0])
-            status.color = [0,1,0,1]
-
-            root_widget.current = 'Calendario'
-
-
         elif text_user_input in dic_C:
 
             global aluno
@@ -208,14 +196,7 @@ class MyScreenManager(ScreenManager):
 
             aluno = Aluno(nome, text_user_input, turma_C)
 
-
             root_widget.current = 'Segunda'
-
-            status.text = u"Ola {0}".format(dic_C[text_user_input][0])
-            status.color = [0,1,0,1]
-
-            root_widget.current = 'Calendario'
-
 
         else:
 
@@ -299,7 +280,6 @@ MyScreenManager:
 
     Usuario:
     Bem_Vindo:
-    Calendario:
     Mapa:
     Professores:
     Sair:

@@ -901,9 +901,18 @@ MyScreenManager:
         Scatter:
             size_hint: [1,1]
 
+            do_rotation: False
+			do_translation: False
+
             Image:
                 source: 'mapa_insper.png'
+
                 size_hint: [1,1]
+
+                width: root.width
+				height: root.height
+				allow_stretch: True
+				keep_ratio: False
 
         BoxLayout:
             size_hint: [1,.1]

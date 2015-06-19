@@ -318,6 +318,14 @@ MyScreenManager:
     Sexta:
 
     Heloisa:
+    Leonidas:
+    Mauricio:
+    FabioO:
+    Paulina:
+    Fernando:
+    FabioM:
+    Luciano:
+    Vinicius:
 
 <Usuario>:
     name: 'Usuario'
@@ -1005,6 +1013,472 @@ MyScreenManager:
                     center_y: self.parent.center_y
                     allow_stretch: True
 
+<Leonidas>:
+    name: 'Leonidas'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'leo.JPG'
+                size_hint: [1,1]
+
+        BoxLayout:
+            size_hint: [1,.1]
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+
+<Mauricio>:
+    name: 'Mauricio'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'mauricio.JPG'
+                size_hint: [1,1]
+
+        BoxLayout:
+            size_hint: [1,.1]
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+
+<FabioO>:
+    name: 'FabioO'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'fabioorfali.JPG'
+                size_hint: [1,1]
+
+        BoxLayout:
+            size_hint: [1,.1]
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+<Paulina>:
+    name: 'Paulina'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'paulina.JPG'
+                size_hint: [1,1]
+
+        BoxLayout:
+            size_hint: [1,.1]
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+
+<Fernando>:
+    name: 'Fernando'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'leo.JPG'
+                size_hint: [1,1]
+
+        BoxLayout:
+            size_hint: [1,.1]
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+<FabioM>:
+    name: 'FabioM'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'fabiomiranda.JPG'
+                size_hint: [1,1]
+
+        BoxLayout:
+            size_hint: [1,.1]
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+<Luciano>:
+    name: 'Luciano'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'luciano.JPG'
+                size_hint: [1,1]
+
+        BoxLayout:
+            size_hint: [1,.1]
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+<Vinicius>:
+    name: 'Vinicius'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'vinicius.JPG'
+                size_hint: [1,1]
+
+        BoxLayout:
+            size_hint: [1,.1]
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Calendario'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
 
 <Professores>:
     name: 'Professores'
@@ -1024,35 +1498,35 @@ MyScreenManager:
 
         Button:
             text: 'Leonidas Junior'
-            on_press: print ('Leonidas Junior')
+            on_release: app.root.current = 'Leonidas'
 
         Button:
             text: 'Mauricio Ferreira'
-            on_press: print ('Prof')
+            on_release: app.root.current = 'Mauricio'
 
         Button:
             text: 'Fabio Orfali'
-            on_press: print ('Fabio Orfali')
+            on_release: app.root.current = 'FabioO'
 
         Button:
             text: 'Paulina Achurra'
-            on_press: print ('Paulina Achurra')
+            on_release: app.root.current = 'Paulina'
 
         Button:
             text: 'Fernando Orsatti'
-            on_press: print ('Fernando Orsatti')
+            on_release: app.root.current = 'Fernando'
 
         Button:
             text: 'Fabio Miranda'
-            on_press: print ('Fernando Orsatti')
+            on_release: app.root.current = 'FabioM'
 
         Button:
             text: 'Luciano Soares'
-            on_press: print ('Fernando Orsatti')
+            on_release: app.root.current = 'Luciano'
 
         Button:
             text: 'Vinicius Licks'
-            on_press: print ('Fernando Orsatti')
+            on_release: app.root.current = 'Vinicius'
 
         BoxLayout:
             orinetation: 'horizontal'

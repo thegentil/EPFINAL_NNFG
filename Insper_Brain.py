@@ -87,6 +87,7 @@ class Calendario(Screen):
 class Professores(Screen):
     pass
 
+
 class Heloisa(Screen):
     pass
 
@@ -114,8 +115,10 @@ class Luciano (Screen):
 class Vinicius (Screen):
     pass
 
+
 class Sair(Screen):
     pass
+
 
 class Segunda(Screen):
     pass
@@ -912,7 +915,6 @@ MyScreenManager:
                 width: root.width
 				height: root.height
 				allow_stretch: True
-				keep_ratio: False
 
         BoxLayout:
             size_hint: [1,.1]
@@ -1494,12 +1496,6 @@ MyScreenManager:
 
     BoxLayout:
         orientation: 'vertical'
-
-        Label:
-            text: 'Professores'
-            font_size: 30
-            size_hint: [1,1]
-            pos_hint: {'center_x': .5, 'center_y':.5}
 
         Button:
             text: 'Heloisa Neves'

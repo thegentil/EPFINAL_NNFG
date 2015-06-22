@@ -115,6 +115,9 @@ class Luciano (Screen):
 class Vinicius (Screen):
     pass
 
+class Lourenco (Screen):
+    pass
+
 
 class Sair(Screen):
     pass
@@ -329,6 +332,7 @@ MyScreenManager:
     FabioM:
     Luciano:
     Vinicius:
+    Lourenco:
 
 <Usuario>:
     name: 'Usuario'
@@ -414,6 +418,14 @@ MyScreenManager:
 
 <Segunda>:
     name: 'Segunda'
+
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
 
     BoxLayout:
         orientation: 'vertical'
@@ -526,6 +538,14 @@ MyScreenManager:
 
 <Terca>:
     name: 'Terca'
+
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
 
     BoxLayout:
         orientation: 'vertical'
@@ -643,6 +663,14 @@ MyScreenManager:
 <Quarta>:
     name: 'Quarta'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -758,6 +786,14 @@ MyScreenManager:
 
 <Quinta>:
     name: 'Quinta'
+
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
 
     BoxLayout:
         orientation: 'vertical'
@@ -876,6 +912,14 @@ MyScreenManager:
 <Sexta>:
     name: 'Sexta'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -990,6 +1034,14 @@ MyScreenManager:
 <Mapa>:
     name: 'Mapa'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -1069,6 +1121,14 @@ MyScreenManager:
 <Heloisa>:
     name: 'Heloisa'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -1094,7 +1154,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -1127,6 +1187,14 @@ MyScreenManager:
 <Leonidas>:
     name: 'Leonidas'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -1152,7 +1220,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -1186,6 +1254,14 @@ MyScreenManager:
 <Mauricio>:
     name: 'Mauricio'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -1211,7 +1287,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -1270,7 +1346,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -1303,6 +1379,14 @@ MyScreenManager:
 <Paulina>:
     name: 'Paulina'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -1328,7 +1412,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -1362,6 +1446,14 @@ MyScreenManager:
 <Fernando>:
     name: 'Fernando'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -1387,7 +1479,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -1420,6 +1512,14 @@ MyScreenManager:
 <FabioM>:
     name: 'FabioM'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -1445,7 +1545,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -1478,6 +1578,14 @@ MyScreenManager:
 <Luciano>:
     name: 'Luciano'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -1503,7 +1611,7 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                on_release: app.root.current = 'Segunda'
                 Image:
                     source: 'calendario.png'
                     size_hint: [1,1]
@@ -1535,6 +1643,80 @@ MyScreenManager:
 
 <Vinicius>:
     name: 'Vinicius'
+
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: [1,1]
+            Image:
+                source: 'vinicius.JPG'
+                size_hint: [1,1]
+
+        BoxLayout:
+            size_hint: [1,.1]
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Mapa'
+                Image:
+                    source: 'mapa.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Segunda'
+                Image:
+                    source: 'calendario.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Professores'
+                Image:
+                    source: 'professores.png'
+                    size_hint: [1,1]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+            Button:
+                font_size: 20
+                size_hint: [1,1]
+                on_release: app.root.current = 'Sair'
+                Image:
+                    source: 'sair.png'
+                    size_hint: [.3,.3]
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    allow_stretch: True
+
+<Lourenco>:
+    name: 'Lourenco'
+
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
 
     BoxLayout:
         orientation: 'vertical'
@@ -1594,44 +1776,83 @@ MyScreenManager:
 <Professores>:
     name: 'Professores'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
-        Button:
-            text: 'Heloisa Neves'
-            on_release: app.root.current = 'Heloisa'
+        GridLayout:
+            cols: 2
+            spacing: 1
+            orientation: 'vertical'
+            size_hint: [1,1]
+            pos_hint:{'y' : .1}
 
-        Button:
-            text: 'Leonidas Junior'
-            on_release: app.root.current = 'Leonidas'
+            Button:
+                text: 'Heloisa Neves'
+                font_size: 20
+                size_hint: [.01,.01]
+                on_release: app.root.current = 'Heloisa'
 
-        Button:
-            text: 'Mauricio Ferreira'
-            on_release: app.root.current = 'Mauricio'
+            Button:
+                text: 'Leonidas Junior'
+                font_size: 20
+                size_hint: [.01,.01]
+                on_release: app.root.current = 'Leonidas'
 
-        Button:
-            text: 'Fabio Orfali'
-            on_release: app.root.current = 'FabioO'
+            Button:
+                text: 'Mauricio Ferreira'
+                font_size: 20
+                size_hint: [.01,.01]
+                on_release: app.root.current = 'Mauricio'
 
-        Button:
-            text: 'Paulina Achurra'
-            on_release: app.root.current = 'Paulina'
+            Button:
+                text: 'Fabio Orfali'
+                font_size: 20
+                size_hint: [.01,.01]
+                on_release: app.root.current = 'FabioO'
 
-        Button:
-            text: 'Fernando Orsatti'
-            on_release: app.root.current = 'Fernando'
+            Button:
+                text: 'Paulina Achurra'
+                font_size: 20
+                size_hint: [.01,.01]
+                on_release: app.root.current = 'Paulina'
 
-        Button:
-            text: 'Fabio Miranda'
-            on_release: app.root.current = 'FabioM'
+            Button:
+                text: 'Fernando Orsatti'
+                font_size: 20
+                size_hint: [.01,.01]
+                on_release: app.root.current = 'Fernando'
 
-        Button:
-            text: 'Luciano Soares'
-            on_release: app.root.current = 'Luciano'
+            Button:
+                text: 'Fabio Miranda'
+                font_size: 20
+                size_hint: [.01,.01]
+                on_release: app.root.current = 'FabioM'
 
-        Button:
-            text: 'Vinicius Licks'
-            on_release: app.root.current = 'Vinicius'
+            Button:
+                text: 'Luciano Soares'
+                font_size: 20
+                size_hint: [.01,.01]
+                on_release: app.root.current = 'Luciano'
+
+            Button:
+                text: 'Vinicius Licks'
+                font_size: 20
+                size_hint: [.01,.01]
+                on_release: app.root.current = 'Vinicius'
+
+            Button:
+                text: 'Francisco Lourenço'
+                font_size: 20
+                size_hint: [.01,.01]
+                on_release: app.root.current = 'Lourenco'
 
         BoxLayout:
             orinetation: 'horizontal'
@@ -1683,6 +1904,14 @@ MyScreenManager:
 <Sair>:
     name: 'Sair'
 
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
@@ -1695,6 +1924,15 @@ MyScreenManager:
             on_release: root.manager.reset_user_screen()
             background_color: [0,255,0,1] if self.state == 'normal' else [0,255,0,.7]
 
+        Label:
+            pos_hint: {'center_x': .5, 'center_y':.5}
+            text: 'Quer mesmo sair?'
+            color: [1,1,1,1]
+            font_size: 40
+            size_hint_y: .1
+            size_hint_x: 1
+
+
         Button:
             text: 'NÃO'
             font_size: 40 if self.state == 'normal' else 30
@@ -1703,16 +1941,6 @@ MyScreenManager:
             pos_hint: {'center_x': 0.5, 'center_y':.25}
             on_release: app.root.current = 'Segunda'
             background_color: [255,0,0,1] if self.state == 'normal' else [255,0,0,.7]
-
-    FloatLayout:
-
-        Label:
-            text: 'Quer mesmo sair?'
-            font_size: 50
-            pos_hint: {'center_x': .5, 'center_y':.5}
-            size_hint_y: .1
-            size_hint_x: 1
-            color:[0,0,0,1]
 
 ''')
 

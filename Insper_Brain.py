@@ -426,29 +426,40 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+
             Button:
                 text: 'Ter'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Terca'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Qua'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Qui'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quinta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Sex'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
         Image:
             id: image_segunda
@@ -461,6 +472,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
@@ -472,6 +485,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
@@ -484,6 +499,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
@@ -496,6 +513,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
@@ -519,30 +538,40 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Ter'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Terca'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Qua'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Qui'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quinta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Sex'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
         BoxLayout:
             size_hint: [1,1]
@@ -554,10 +583,13 @@ MyScreenManager:
 
         BoxLayout:
             size_hint: [1,.11]
+            spacing: [5,5]
 
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
@@ -569,6 +601,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
@@ -581,6 +615,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
@@ -593,6 +629,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
@@ -616,12 +654,16 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Ter'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Terca'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
 
             Button:
@@ -629,18 +671,24 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Qui'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quinta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Sex'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
         BoxLayout:
             size_hint: [1,1]
@@ -656,6 +704,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
@@ -667,6 +717,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
@@ -679,6 +731,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
@@ -691,6 +745,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
@@ -714,12 +770,16 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Ter'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Terca'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
 
             Button:
@@ -727,6 +787,8 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
 
             Button:
@@ -734,12 +796,16 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quinta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Sex'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
         BoxLayout:
             size_hint: [1,1]
@@ -755,6 +821,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
@@ -766,6 +834,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
@@ -778,6 +848,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
@@ -790,6 +862,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
@@ -813,30 +887,40 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Ter'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Terca'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Qua'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Qui'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quinta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
             Button:
                 text: 'Sex'
                 font_size: 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
+                background_normal: ''
+                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
 
         BoxLayout:
             size_hint: [1,1]
@@ -851,6 +935,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
@@ -862,6 +948,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
@@ -874,6 +962,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
@@ -886,6 +976,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
@@ -901,7 +993,7 @@ MyScreenManager:
     BoxLayout:
         orientation: 'vertical'
 
-        Scatter:
+        BoxLayout:
             size_hint: [1,1]
 
             do_rotation: False
@@ -922,6 +1014,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
@@ -933,6 +1027,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
@@ -945,6 +1041,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
@@ -957,6 +1055,8 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:

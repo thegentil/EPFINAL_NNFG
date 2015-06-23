@@ -1135,7 +1135,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'helo.JPG'
+                source: 'heloisa.png'
                 size_hint: [1,1]
 
         BoxLayout:
@@ -1201,7 +1201,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'leo.JPG'
+                source: 'leo.png'
                 size_hint: [1,1]
 
         BoxLayout:
@@ -1268,7 +1268,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'mauricio.JPG'
+                source: 'mauricio.png'
                 size_hint: [1,1]
 
         BoxLayout:
@@ -1321,13 +1321,21 @@ MyScreenManager:
 <FabioO>:
     name: 'FabioO'
 
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'fabioorfali.JPG'
+                source: 'fabio_orfali.png'
                 size_hint: [1,1]
 
         BoxLayout:
@@ -1393,7 +1401,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'paulina.JPG'
+                source: 'paulina.png'
                 size_hint: [1,1]
 
         BoxLayout:
@@ -1460,7 +1468,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'leo.JPG'
+                source: 'fernando_orsatti.png'
                 size_hint: [1,1]
 
         BoxLayout:
@@ -1526,7 +1534,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'fabiomiranda.JPG'
+                source: 'fabio_miranda.png'
                 size_hint: [1,1]
 
         BoxLayout:
@@ -1592,7 +1600,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'luciano.JPG'
+                source: 'luciano.png'
                 size_hint: [1,1]
 
         BoxLayout:
@@ -1658,7 +1666,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'vinicius.JPG'
+                source: 'vinicius.png'
                 size_hint: [1,1]
 
         BoxLayout:
@@ -1724,7 +1732,7 @@ MyScreenManager:
         BoxLayout:
             size_hint: [1,1]
             Image:
-                source: 'vinicius.JPG'
+                source: 'loureco.png'
                 size_hint: [1,1]
 
         BoxLayout:

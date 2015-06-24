@@ -340,12 +340,6 @@ MyScreenManager:
 
     FloatLayout:
 
-        Button:
-            text: "FREE_ENTER"
-            size_hint: .1,.1
-            pos_hint: {'center_x': .1, 'center_y': .8}
-            on_release: app.root.current = 'Segunda'
-
         Label:
             pos_hint: {'center_x': .5, 'center_y':.85}
             text: 'INSPERBRAIN'
@@ -381,7 +375,7 @@ MyScreenManager:
             font_size: 15
             color: [0,0,0,1]
             size_hint: [1,.15]
-            pos_hint: {'center_x': .5, 'center_y':.5}
+            pos_hint: {'center_x': .58, 'center_y':.5}
 
 
         Button:
@@ -394,6 +388,7 @@ MyScreenManager:
             on_press: root.manager.checa_usuario()
             on_release: root.manager.horarios()
             background_normal: ''
+            background_down: ''
             background_color: [0.9, 0.1, 0.2, 1] if self.state == 'normal' else [0.9, 0.1, 0.2, .7]
 
 
@@ -1112,9 +1107,7 @@ MyScreenManager:
 
             Image:
                 source: 'mapa_insper.png'
-
                 size_hint: [1,1]
-
                 width: root.width
 				height: root.height
 				allow_stretch: True
@@ -2080,7 +2073,7 @@ MyScreenManager:
                 on_release: app.root.current = 'Vinicius'
 
             Button:
-                text: 'Francisco Lourenço'
+                text: 'Lourenço'
                 font_size: 20
                 size_hint: [.01,.01]
                 on_release: app.root.current = 'Lourenco'

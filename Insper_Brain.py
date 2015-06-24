@@ -2168,7 +2168,7 @@ MyScreenManager:
             pos_hint: {'center_x': .5, 'center_y':.5}
             text: 'Quer mesmo sair?'
             color: [1,1,1,1]
-            font_size: 40
+            font_size: 35
             size_hint_y: .1
             size_hint_x: 1
 

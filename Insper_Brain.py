@@ -158,6 +158,7 @@ class MyScreenManager(ScreenManager):
     user_screen_grid_layout = None
     button_go = None
     bem_vindo_label = None
+    select_color = [0,0.9,1,1]
 
     def variaveis(self):
 
@@ -193,7 +194,6 @@ class MyScreenManager(ScreenManager):
         imagem_quarta = self.screens[7].ids["image_quarta"]
         imagem_quinta = self.screens[8].ids["image_quinta"]
         imagem_sexta = self.screens[9].ids["image_sexta"]
-
 
 #CRIANDO A FUNCAO QUE CHECA SE O USUARIO DIGITADO EXISTE:
 
@@ -298,6 +298,7 @@ class MyScreenManager(ScreenManager):
 
         bem_vindo_label.text = aluno.nome
 
+
 #======================================================================================================================#
 
 #STRING QUE CONSTROI O PROGRAMA:
@@ -354,7 +355,6 @@ MyScreenManager:
 
         GridLayout:
             id: grid_layout_user_screen
-            spacing: [0,0]
             size_hint_y: .08
             size_hint_x: .8
             height: 80
@@ -394,7 +394,7 @@ MyScreenManager:
             on_press: root.manager.checa_usuario()
             on_release: root.manager.horarios()
             background_normal: ''
-            background_color: [255,0,0,1] if self.state == 'normal' else [255,0,0,.7]
+            background_color: [0.9, 0.1, 0.2, 1] if self.state == 'normal' else [0.9, 0.1, 0.2, .7]
 
 
 <Bem_Vindo>:
@@ -435,43 +435,52 @@ MyScreenManager:
 
             Button:
                 text: 'Seg'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Segunda' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Segunda' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Ter'
-                font_size: 20
-                size_hint: [1,1]
+                color: [0,0.9,1,1] if root.manager.current == 'Terca' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Terca' else 20
                 on_release: app.root.current = 'Terca'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Qua'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Quarta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Quarta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Qui'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Quinta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Quinta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quinta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Sex'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Sexta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Sexta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
         Image:
             id: image_segunda
@@ -485,12 +494,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -498,12 +508,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -512,12 +523,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -526,12 +538,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -555,51 +568,57 @@ MyScreenManager:
 
             Button:
                 text: 'Seg'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Segunda' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Segunda' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Ter'
-                font_size: 20
-                size_hint: [1,1]
+                color: [0,0.9,1,1] if root.manager.current == 'Terca' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Terca' else 20
                 on_release: app.root.current = 'Terca'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Qua'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Quarta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Quarta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Qui'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Quinta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Quinta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quinta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Sex'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Sexta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Sexta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
-        BoxLayout:
+        Image:
+            id: image_terca
+            source: 'Terca_B.png'
             size_hint: [1,1]
-
-            Image:
-                id: image_terca
-                source: 'Terca_B.png'
-                size_hint: [1,1]
 
         BoxLayout:
             size_hint: [1,.11]
@@ -609,12 +628,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -622,12 +642,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -636,12 +657,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -650,12 +672,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -679,44 +702,52 @@ MyScreenManager:
 
             Button:
                 text: 'Seg'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Segunda' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Segunda' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Ter'
-                font_size: 20
-                size_hint: [1,1]
+                color: [0,0.9,1,1] if root.manager.current == 'Terca' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Terca' else 20
                 on_release: app.root.current = 'Terca'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
-
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Qua'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Quarta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Quarta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Qui'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Quinta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Quinta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quinta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Sex'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Sexta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Sexta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
         BoxLayout:
             size_hint: [1,1]
@@ -733,12 +764,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -746,12 +778,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -760,12 +793,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -774,12 +808,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -803,45 +838,52 @@ MyScreenManager:
 
             Button:
                 text: 'Seg'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Segunda' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Segunda' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Ter'
-                font_size: 20
-                size_hint: [1,1]
+                color: [0,0.9,1,1] if root.manager.current == 'Terca' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Terca' else 20
                 on_release: app.root.current = 'Terca'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
-
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Qua'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Quarta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Quarta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
-
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Qui'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Quinta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Quinta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quinta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Sex'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Sexta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Sexta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
         BoxLayout:
             size_hint: [1,1]
@@ -858,12 +900,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -871,12 +914,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -885,12 +929,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -899,12 +944,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -928,43 +974,52 @@ MyScreenManager:
 
             Button:
                 text: 'Seg'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Segunda' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Segunda' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Segunda'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Ter'
-                font_size: 20
-                size_hint: [1,1]
+                color: [0,0.9,1,1] if root.manager.current == 'Terca' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Terca' else 20
                 on_release: app.root.current = 'Terca'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Qua'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Quarta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Quarta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quarta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Qui'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Quinta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Quinta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Quinta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
             Button:
                 text: 'Sex'
-                font_size: 20
+                color: [0,0.9,1,1] if root.manager.current == 'Sexta' else [1,1,1,1]
+                font_size: 30 if root.manager.current == 'Sexta' else 20
                 size_hint: [1,1]
                 on_release: app.root.current = 'Sexta'
                 background_normal: ''
-                background_color: [0, 0, 0, 1] if self.state == 'normal' else [0, 0, 0, 0.7]
+                background_down: ''
+                background_color: [0, 0, 0, 1]
 
         BoxLayout:
             size_hint: [1,1]
@@ -980,12 +1035,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -993,12 +1049,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1007,12 +1064,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1021,12 +1079,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1067,12 +1126,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1080,12 +1140,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1094,12 +1155,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1108,12 +1170,13 @@ MyScreenManager:
                 font_size: 20
                 size_hint: [1,1]
                 background_normal: ''
-                background_color: [0.8, 0.1, 0.2, 1] if self.state == 'normal' else [0.52, 0.05, 0.11, 1]
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1144,20 +1207,28 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
+
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1165,10 +1236,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1176,10 +1251,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1210,20 +1289,28 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
+
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1231,10 +1318,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1242,10 +1333,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1277,20 +1372,28 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
+
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1298,10 +1401,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1309,10 +1416,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1344,20 +1455,28 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
+
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1365,10 +1484,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1376,10 +1499,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1410,20 +1537,28 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
+
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1431,10 +1566,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1442,10 +1581,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1477,20 +1620,28 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
+
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1498,10 +1649,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1509,10 +1664,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1543,20 +1702,28 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
+
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1564,10 +1731,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1575,10 +1746,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1609,20 +1784,28 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
+
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1630,10 +1813,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1641,10 +1828,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1675,20 +1866,28 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
+
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1696,10 +1895,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1707,10 +1910,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1741,20 +1948,28 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
+
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
                 size_hint: [1,1]
-                on_release: app.root.current = 'Calendario'
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
+                on_release: app.root.current = 'Segunda'
+
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1762,10 +1977,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
+
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1773,10 +1992,14 @@ MyScreenManager:
             Button:
                 font_size: 20
                 size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
+
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1868,43 +2091,59 @@ MyScreenManager:
 
             Button:
                 font_size: 20
+                size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Mapa'
 
                 Image:
-                    source: 'mapa.png'
-                    size_hint: [1,1]
+                    source: 'mapa.png' if root.manager.current != 'Mapa' else 'mapa_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
             Button:
                 font_size: 20
+                size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Segunda'
 
                 Image:
-                    source: 'calendario.png'
-                    size_hint: [1,.1]
+                    source: 'calendario.png' if root.manager.current != 'Segunda' and root.manager.current != 'Terca' and root.manager.current != 'Quarta' and root.manager.current != 'Quinta' and root.manager.current != 'Sexta' else 'calendario_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
 
             Button:
                 font_size: 20
+                size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Professores'
 
                 Image:
-                    source: 'professores.png'
-                    size_hint: [1,1]
+                    source: 'professores.png' if root.manager.current != 'Professores' else 'professores_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
 
             Button:
                 font_size: 20
+                size_hint: [1,1]
+                background_normal: ''
+                background_down: ''
+                background_color: [0.9, 0.1, 0.2, 1]
                 on_release: app.root.current = 'Sair'
 
                 Image:
-                    source: 'sair.png'
-                    size_hint: [.3,.3]
+                    source: 'sair.png' if root.manager.current != 'Sair' else 'sair_2.png'
+                    size: 50,50
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
                     allow_stretch: True
@@ -1952,10 +2191,8 @@ MyScreenManager:
 
 ''')
 
-class ScreenManagerApp(App):
+class InsperBrain(App):
     def build(self):
         return root_widget
 
-teste_dics()
-
-ScreenManagerApp().run()
+InsperBrain().run()
